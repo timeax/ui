@@ -1,0 +1,41 @@
+{
+  "name": "sidebar-manager",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "sheet",
+    "scroll-area"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/sidebar-manager/sidebar-manager.types.ts",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/sidebar-manager/sidebar-store.ts",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/sidebar-manager/sidebar-provider.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/sidebar-manager/create-sidebar.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/sidebar-manager/sidebar-compound.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/sidebar-manager/sidebar-host.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/sidebar-manager/index.ts",
+      "type": "registry:ui"
+    }
+  ]
+}

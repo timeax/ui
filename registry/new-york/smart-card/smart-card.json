@@ -1,0 +1,16 @@
+{
+  "name": "smart-card",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/smart-card/smart-card.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

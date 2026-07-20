@@ -1,0 +1,37 @@
+{
+  "name": "feed-renderer",
+  "type": "registry:ui",
+  "dependencies": [
+    "@iconify/react"
+  ],
+  "registryDependencies": [
+    "smart-button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/feed-renderer/feed-renderer.types.ts",
+      "type": "registry:ui",
+      "target": "components/ui/feed-renderer.types.ts"
+    },
+    {
+      "path": "registry/new-york/feed-renderer/feed-renderer-parts.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/feed-renderer-parts.tsx"
+    },
+    {
+      "path": "registry/new-york/feed-renderer/feed-renderer.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/feed-renderer.tsx"
+    },
+    {
+      "path": "registry/new-york/feed-renderer/feed-renderer-demo.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/feed-renderer-demo.tsx"
+    },
+    {
+      "path": "registry/new-york/feed-renderer/logger-provider.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/logger-provider.tsx"
+    }
+  ]
+}

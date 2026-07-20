@@ -1,0 +1,13 @@
+{
+  "name": "paper",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/paper/paper.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

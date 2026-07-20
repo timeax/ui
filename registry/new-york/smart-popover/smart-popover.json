@@ -1,0 +1,21 @@
+{
+  "name": "smart-popover",
+  "type": "registry:ui",
+  "dependencies": [
+    "clsx"
+  ],
+  "registryDependencies": [
+    "popover",
+    "smart-button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/smart-popover/smart-popover.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/smart-popover/index.ts",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "smart-button",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/smart-button/smart-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/smart-button.tsx"
+    }
+  ]
+}

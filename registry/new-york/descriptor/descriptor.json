@@ -1,0 +1,25 @@
+{
+  "name": "descriptor",
+  "type": "registry:ui",
+  "dependencies": [
+    "clsx"
+  ],
+  "registryDependencies": [
+    "text",
+    "visual"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/descriptor/descriptor.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/descriptor/info.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/descriptor/index.ts",
+      "type": "registry:ui"
+    }
+  ]
+}

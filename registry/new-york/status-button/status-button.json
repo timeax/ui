@@ -1,0 +1,16 @@
+{
+  "name": "status-button",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "registryDependencies": [
+    "smart-button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/status-button/status-button.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

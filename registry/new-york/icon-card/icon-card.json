@@ -1,0 +1,14 @@
+{
+  "name": "icon-card",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/icon-card/icon-card.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

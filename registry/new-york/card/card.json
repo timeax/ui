@@ -1,0 +1,11 @@
+{
+  "name": "card",
+  "type": "registry:ui",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/card/card.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "use-mobile",
+  "type": "registry:hook",
+  "files": [
+    {
+      "path": "registry/new-york/hooks/use-mobile.tsx",
+      "type": "registry:hook"
+    }
+  ]
+}

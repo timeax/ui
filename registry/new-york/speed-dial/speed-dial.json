@@ -1,0 +1,13 @@
+{
+  "name": "speed-dial",
+  "type": "registry:ui",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/speed-dial/speed-dial.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

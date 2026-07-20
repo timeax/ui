@@ -1,0 +1,14 @@
+{
+  "name": "text",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority",
+    "@radix-ui/react-slot"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/text/text.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

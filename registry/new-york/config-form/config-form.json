@@ -1,0 +1,28 @@
+{
+  "name": "config-form",
+  "type": "registry:ui",
+  "dependencies": [
+    "@timeax/form-palette",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "smart-button",
+    "card",
+    "input",
+    "enhanced-tabs",
+    "dialog",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/config-form/config-form.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/config-form.tsx"
+    },
+    {
+      "path": "registry/new-york/config-form/config-form.types.ts",
+      "type": "registry:ui",
+      "target": "components/ui/config-form.types.ts"
+    }
+  ]
+}
