@@ -66,10 +66,10 @@ Point the CLI at this repository as your custom registry:
 
 ```bash
 # Install a single component
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/<component-name>.json
+npx shadcn@latest add timeax/ui/<component-name>
 
 # Example — install smart-button
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/smart-button.json
+npx shadcn@latest add timeax/ui/smart-button
 ```
 
 ### Manual Installation
@@ -97,7 +97,7 @@ A fully polymorphic, tone-aware button with built-in loading states, icon placem
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/smart-button.json
+npx shadcn@latest add timeax/ui/smart-button
 ```
 
 **Dependencies:** `lucide-react`, `class-variance-authority`
@@ -151,7 +151,7 @@ A compound button that pairs a primary action with a dropdown caret exposing sec
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/split-button.json
+npx shadcn@latest add timeax/ui/split-button
 ```
 
 **Dependencies:** `@radix-ui/react-dropdown-menu`, `lucide-react`
@@ -205,7 +205,7 @@ Maps a status string to a corresponding color, icon, and optional spin animation
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/status-button.json
+npx shadcn@latest add timeax/ui/status-button
 ```
 
 **Props:** Extends all `Button` props.
@@ -242,7 +242,7 @@ A floating action button menu that fans out stagger-animated child actions, supp
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/speed-dial.json
+npx shadcn@latest add timeax/ui/speed-dial
 ```
 
 **Dependencies:** `framer-motion`, `lucide-react`
@@ -315,7 +315,7 @@ A responsive disclosure container that collapses toolbar controls (e.g. search i
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/reveal.json
+npx shadcn@latest add timeax/ui/reveal
 ```
 
 **`RevealProps`:**
@@ -384,7 +384,7 @@ A compound container supporting multiple surface variants, nested inner/outer le
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/smart-card.json
+npx shadcn@latest add timeax/ui/smart-card
 ```
 
 **`SmartCardProps`:**
@@ -430,7 +430,7 @@ A promotional layout where a circular badge or icon element overlaps the top bou
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/icon-card.json
+npx shadcn@latest add timeax/ui/icon-card
 ```
 
 **`IconCardProps`:**
@@ -469,7 +469,7 @@ A simpler flat surface container supporting surface variations, outer/inner leve
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/paper.json
+npx shadcn@latest add timeax/ui/paper
 ```
 
 **`PaperProps`:**
@@ -503,7 +503,7 @@ A full-featured data grid with declarative column definitions, sticky frozen col
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/data-table.json
+npx shadcn@latest add timeax/ui/data-table
 ```
 
 **Dependencies:** `lucide-react`
@@ -624,7 +624,7 @@ A standalone date formatting component with named presets built on `Intl.DateTim
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/date-text.json
+npx shadcn@latest add timeax/ui/date-text
 ```
 
 **Props:**
@@ -658,7 +658,7 @@ A structured key-value metadata row supporting both a property-based API and a c
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/descriptor.json
+npx shadcn@latest add timeax/ui/descriptor
 ```
 
 **`DescriptorProps`:**
@@ -704,7 +704,7 @@ A polymorphic typography component with pre-defined variants, weight and size ov
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/text.json
+npx shadcn@latest add timeax/ui/text
 ```
 
 **`TextBaseProps`:**
@@ -762,7 +762,7 @@ A centralized, promise-aware dialog registry enabling programmatic dialog contro
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/dialog-manager.json
+npx shadcn@latest add timeax/ui/dialog-manager
 ```
 
 **Registry dependencies:** `dialog`, `alert-dialog`, `button`, `headless-responsive-dialog`
@@ -852,7 +852,7 @@ An adaptive dialog primitive that renders as a centered modal on desktop and a b
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/headless-responsive-dialog.json
+npx shadcn@latest add timeax/ui/headless-responsive-dialog
 ```
 
 **Props:**
@@ -889,7 +889,7 @@ A centralized, promise-aware registry for programmatic sliding detail sheets (dr
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/sidebar-manager.json
+npx shadcn@latest add timeax/ui/sidebar-manager
 ```
 
 **Registry dependencies:** `sheet`, `scroll-area`
@@ -952,7 +952,7 @@ A lightweight composition wrapper around the shadcn `Popover` with trigger-width
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/smart-popover.json
+npx shadcn@latest add timeax/ui/smart-popover
 ```
 
 **`SmartPopoverProps`:**
@@ -1002,7 +1002,7 @@ A responsive tab list with overflow handling (scroll arrows or dropdown), asynch
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/enhanced-tabs.json
+npx shadcn@latest add timeax/ui/enhanced-tabs
 ```
 
 **Registry dependencies:** `overflow-list`
@@ -1062,7 +1062,7 @@ A generic overflow measurement engine that dynamically slices a list into visibl
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/overflow-list.json
+npx shadcn@latest add timeax/ui/overflow-list
 ```
 
 **`OverflowListProps<T>`:**
@@ -1082,7 +1082,7 @@ A template-driven, zoned pagination component supporting page-number and index-b
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/paginator.json
+npx shadcn@latest add timeax/ui/paginator
 ```
 
 **`PaginatorProps<T>`:**
@@ -1125,7 +1125,7 @@ A keyboard-triggered command palette dialog (`Cmd+K` / `Ctrl+K`) with configurab
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/command-search.json
+npx shadcn@latest add timeax/ui/command-search
 ```
 
 **Registry dependencies:** `command`, `dialog`
@@ -1178,7 +1178,7 @@ A smart media-frame component that sniffs the `src` type (URL, SVG string, inlin
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/visual.json
+npx shadcn@latest add timeax/ui/visual
 ```
 
 **`VisualProps`:**
@@ -1232,7 +1232,7 @@ A horizontal or vertical stack of overlapping items (avatars, badges, icons) wit
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/overlap-stack.json
+npx shadcn@latest add timeax/ui/overlap-stack
 ```
 
 **`OverlapStackProps`:**
@@ -1278,7 +1278,7 @@ A horizontal scroll navigator with dot pagination controls that scroll hidden it
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/peek-dots.json
+npx shadcn@latest add timeax/ui/peek-dots
 ```
 
 **`PeekDotsProps`:**
@@ -1303,7 +1303,7 @@ A conditional renderer that shows content when data is non-empty, or displays a 
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/render-if.json
+npx shadcn@latest add timeax/ui/render-if
 ```
 
 **Registry dependencies:** `empty`
@@ -1362,7 +1362,7 @@ A standalone visual placeholder container for empty states with composable regio
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/empty.json
+npx shadcn@latest add timeax/ui/empty
 ```
 
 **Sub-components:** `Empty`, `EmptyHeader`, `EmptyMedia`, `EmptyTitle`, `EmptyDescription`, `EmptyContent`
@@ -1393,7 +1393,7 @@ An `IntersectionObserver`-based sentinel that triggers a callback when scrolled 
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/infinite-scroller.json
+npx shadcn@latest add timeax/ui/infinite-scroller
 ```
 
 **`InfiniteScrollerProps`:**
@@ -1443,7 +1443,7 @@ A flexible row and toolbar action menu supporting nested items, icons, tooltips,
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/actions-toolbox.json
+npx shadcn@latest add timeax/ui/actions-toolbox
 ```
 
 **Dependencies:** `@radix-ui/react-dropdown-menu`, `@radix-ui/react-tooltip`, `lucide-react`
@@ -1539,7 +1539,7 @@ A schema-driven settings form renderer that reads a `UiConfigSchemaPayload` and 
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/config-form.json
+npx shadcn@latest add timeax/ui/config-form
 ```
 
 **`NotificationTemplateEditorProps` (ConfigForm):**
@@ -1567,7 +1567,7 @@ A flexible notification card renderer supporting multiple message types, icons, 
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/feed-renderer.json
+npx shadcn@latest add timeax/ui/feed-renderer
 ```
 
 **Dependencies:** `@iconify/react`
@@ -1594,7 +1594,7 @@ A full-featured visual editor for composing notification templates across multip
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/notification-builder.json
+npx shadcn@latest add timeax/ui/notification-builder
 ```
 
 **`NotificationTemplateEditorProps`:**
@@ -1654,7 +1654,7 @@ Viewport-width hook that returns `true` when the window is narrower than the giv
 
 **Install:**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/timeax/ui/main/public/r/use-mobile.json
+npx shadcn@latest add timeax/ui/use-mobile
 ```
 
 ```tsx
