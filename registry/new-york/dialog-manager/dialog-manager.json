@@ -1,0 +1,38 @@
+{
+  "name": "dialog-manager",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-popover"
+  ],
+  "registryDependencies": [
+    "headless-responsive-dialog",
+    "scroll-area",
+    "alert-dialog"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/dialog-manager/create-dialog.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/dialog-manager/dialog-compound.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/dialog-manager/dialog-manager.types.ts",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/dialog-manager/dialog-provider.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/dialog-manager/dialog-store.ts",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/dialog-manager/index.ts",
+      "type": "registry:ui"
+    }
+  ]
+}

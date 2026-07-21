@@ -1,0 +1,12 @@
+{
+  "name": "infinite-scroller",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/infinite-scroller/infinite-scroller.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

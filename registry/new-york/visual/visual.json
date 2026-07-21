@@ -1,0 +1,22 @@
+{
+  "name": "visual",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-aspect-ratio"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/visual/visual-demo.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/visual/visual-image.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/visual/visual.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

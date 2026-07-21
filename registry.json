@@ -1,0 +1,883 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "timeax",
+  "homepage": "https://github.com/timeax/ui",
+  "items": [
+    {
+      "name": "actions-toolbox",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "@radix-ui/react-tooltip",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/actions-toolbox/toolbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toolbox.tsx"
+        },
+        {
+          "path": "registry/new-york/actions-toolbox/actions.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/actions.tsx"
+        },
+        {
+          "path": "registry/new-york/actions-toolbox/bulk-toolbar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/bulk-toolbar.tsx"
+        },
+        {
+          "path": "registry/new-york/actions-toolbox/bulk-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/bulk-utils.ts"
+        },
+        {
+          "path": "registry/new-york/actions-toolbox/actions-toolbox-demo.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/actions-toolbox-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-alert-dialog"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/alert-dialog/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/button/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/card/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-checkbox",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/checkbox/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "dialog"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/command/command.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command-search",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "command"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/command-search/command-search.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/command-search/command-search.types.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "config-form",
+      "type": "registry:ui",
+      "dependencies": [
+        "@timeax/form-palette",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "smart-button",
+        "card",
+        "input",
+        "enhanced-tabs",
+        "dialog",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/config-form/config-form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/config-form.tsx"
+        },
+        {
+          "path": "registry/new-york/config-form/config-form.types.ts",
+          "type": "registry:ui",
+          "target": "components/ui/config-form.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "date-text",
+        "button",
+        "smart-button",
+        "checkbox",
+        "scroll-area",
+        "table",
+        "dropdown-menu",
+        "text",
+        "status-button",
+        "paginator"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/data-table/data-table-demo.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/data-table/data-table.hooks.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/data-table/data-table.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/data-table/data-table.types.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/data-table/data-table.utils.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "date-text",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [
+        "text"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/date-text/date-text.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/date-text/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "descriptor",
+      "type": "registry:ui",
+      "dependencies": [
+        "clsx"
+      ],
+      "registryDependencies": [
+        "text",
+        "visual"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/descriptor/descriptor.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/descriptor/info.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/descriptor/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/dialog/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog-manager",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "registryDependencies": [
+        "headless-responsive-dialog",
+        "scroll-area",
+        "alert-dialog"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/dialog-manager/create-dialog.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/dialog-manager/dialog-compound.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/dialog-manager/dialog-manager.types.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/dialog-manager/dialog-provider.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/dialog-manager/dialog-store.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/dialog-manager/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/dropdown-menu/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/empty/empty.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "enhanced-tabs",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "tabs",
+        "dropdown-menu",
+        "overflow-list"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/enhanced-tabs/enhanced-tabs-demo.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/enhanced-tabs/enhanced-tabs.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/enhanced-tabs/enhanced-tabs.types.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "feed-renderer",
+      "type": "registry:ui",
+      "dependencies": [
+        "@iconify/react"
+      ],
+      "registryDependencies": [
+        "smart-button"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/feed-renderer/feed-renderer.types.ts",
+          "type": "registry:ui",
+          "target": "components/ui/feed-renderer.types.ts"
+        },
+        {
+          "path": "registry/new-york/feed-renderer/feed-renderer-parts.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/feed-renderer-parts.tsx"
+        },
+        {
+          "path": "registry/new-york/feed-renderer/feed-renderer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/feed-renderer.tsx"
+        },
+        {
+          "path": "registry/new-york/feed-renderer/feed-renderer-demo.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/feed-renderer-demo.tsx"
+        },
+        {
+          "path": "registry/new-york/feed-renderer/logger-provider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/logger-provider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "headless-responsive-dialog",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-dialog"
+      ],
+      "registryDependencies": [
+        "use-mobile",
+        "scroll-area"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/headless-responsive-dialog/headless-responsive-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/new-york/hooks/use-mobile.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "icon-card",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [
+        "card"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icon-card/icon-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "infinite-scroller",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/infinite-scroller/infinite-scroller.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/input/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "notification-builder",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "feed-renderer",
+        "smart-button"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/notification-builder/notification-builder.types.ts",
+          "type": "registry:ui",
+          "target": "components/ui/notification-builder.types.ts"
+        },
+        {
+          "path": "registry/new-york/notification-builder/notification-builder-context.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/notification-builder-context.tsx"
+        },
+        {
+          "path": "registry/new-york/notification-builder/notification-builder-preview.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/notification-builder-preview.tsx"
+        },
+        {
+          "path": "registry/new-york/notification-builder/notification-builder-inspector.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/notification-builder-inspector.tsx"
+        },
+        {
+          "path": "registry/new-york/notification-builder/notification-builder.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/notification-builder.tsx"
+        },
+        {
+          "path": "registry/new-york/notification-builder/notification-builder-demo.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/notification-builder-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "overflow-list",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/overflow-list/overflow-list.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/overflow-list/overflow-list.types.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "overlap-stack",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [
+        "visual"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/overlap-stack/overlap-stack-demo.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/overlap-stack/overlap-stack.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "paginator",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "button",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/paginator/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/paginator/paginator-demo.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/paginator/paginator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "paper",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/paper/paper.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "peek-dots",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [
+        "smart-card"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/peek-dots/peek-dots-demo.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/peek-dots/peek-dots.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/popover/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "render-if",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [
+        "empty"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/render-if/render-if.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "reveal",
+      "type": "registry:ui",
+      "dependencies": [
+        "clsx"
+      ],
+      "registryDependencies": [
+        "use-mobile"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/reveal/reveal.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/reveal/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-scroll-area"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/scroll-area/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-select",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/select/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-manager",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "sheet",
+        "scroll-area"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/sidebar-manager/sidebar-manager.types.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/sidebar-manager/sidebar-store.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/sidebar-manager/sidebar-provider.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/sidebar-manager/create-sidebar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/sidebar-manager/sidebar-compound.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/sidebar-manager/sidebar-host.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/sidebar-manager/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/skeleton/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "smart-button",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/smart-button/smart-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/smart-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "smart-card",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "card"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/smart-card/smart-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "smart-popover",
+      "type": "registry:ui",
+      "dependencies": [
+        "clsx"
+      ],
+      "registryDependencies": [
+        "popover",
+        "smart-button"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/smart-popover/smart-popover.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/smart-popover/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "speed-dial",
+      "type": "registry:ui",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/speed-dial/speed-dial.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "split-button",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu"
+      ],
+      "registryDependencies": [
+        "smart-button"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/split-button/split-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "status-button",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "smart-button"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/status-button/status-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/table/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-tabs"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/tabs/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "text",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "@radix-ui/react-slot"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/text/text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "visual",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-aspect-ratio"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/visual/visual-demo.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/visual/visual-image.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/visual/visual.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

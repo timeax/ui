@@ -1,0 +1,17 @@
+{
+  "name": "headless-responsive-dialog",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-dialog"
+  ],
+  "registryDependencies": [
+    "use-mobile",
+    "scroll-area"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/headless-responsive-dialog/headless-responsive-dialog.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "command",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "dialog"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/command/command.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

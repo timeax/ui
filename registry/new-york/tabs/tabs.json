@@ -1,0 +1,14 @@
+{
+  "name": "tabs",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-tabs"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/tabs/tabs.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

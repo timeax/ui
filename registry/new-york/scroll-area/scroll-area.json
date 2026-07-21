@@ -1,0 +1,14 @@
+{
+  "name": "scroll-area",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-scroll-area"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/scroll-area/scroll-area.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

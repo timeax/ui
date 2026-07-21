@@ -1,0 +1,14 @@
+{
+  "name": "render-if",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "empty"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/render-if/render-if.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

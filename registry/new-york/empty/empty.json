@@ -1,0 +1,14 @@
+{
+  "name": "empty",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/empty/empty.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

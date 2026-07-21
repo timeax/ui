@@ -1,0 +1,18 @@
+{
+  "name": "peek-dots",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "smart-card"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/peek-dots/peek-dots-demo.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york/peek-dots/peek-dots.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}
