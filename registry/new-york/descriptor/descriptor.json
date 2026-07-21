@@ -11,15 +11,18 @@
   "files": [
     {
       "path": "registry/new-york/descriptor/descriptor.tsx",
-      "type": "registry:ui"
-    },
-    {
-      "path": "registry/new-york/descriptor/info.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/descriptor.tsx"
     },
     {
       "path": "registry/new-york/descriptor/index.ts",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/index.ts"
+    },
+    {
+      "path": "registry/new-york/descriptor/info.tsx",
+      "type": "registry:component",
+      "target": "@ui/info.tsx"
     }
   ]
 }

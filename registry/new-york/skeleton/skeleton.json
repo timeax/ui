@@ -6,7 +6,8 @@
   "files": [
     {
       "path": "registry/new-york/skeleton/skeleton.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/skeleton.tsx"
     }
   ]
 }

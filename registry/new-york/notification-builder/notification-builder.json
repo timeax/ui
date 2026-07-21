@@ -7,34 +7,35 @@
   ],
   "files": [
     {
-      "path": "registry/new-york/notification-builder/notification-builder.types.ts",
-      "type": "registry:ui",
-      "target": "components/ui/notification-builder.types.ts"
-    },
-    {
       "path": "registry/new-york/notification-builder/notification-builder-context.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/notification-builder-context.tsx"
-    },
-    {
-      "path": "registry/new-york/notification-builder/notification-builder-preview.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/notification-builder-preview.tsx"
-    },
-    {
-      "path": "registry/new-york/notification-builder/notification-builder-inspector.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/notification-builder-inspector.tsx"
-    },
-    {
-      "path": "registry/new-york/notification-builder/notification-builder.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/notification-builder.tsx"
+      "type": "registry:component",
+      "target": "@ui/notification-builder-context.tsx"
     },
     {
       "path": "registry/new-york/notification-builder/notification-builder-demo.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/notification-builder-demo.tsx"
+      "type": "registry:component",
+      "target": "@ui/notification-builder-demo.tsx"
+    },
+    {
+      "path": "registry/new-york/notification-builder/notification-builder-inspector.tsx",
+      "type": "registry:component",
+      "target": "@ui/notification-builder-inspector.tsx"
+    },
+    {
+      "path": "registry/new-york/notification-builder/notification-builder-preview.tsx",
+      "type": "registry:component",
+      "target": "@ui/notification-builder-preview.tsx"
+    },
+    {
+      "path": "registry/new-york/notification-builder/notification-builder.tsx",
+      "type": "registry:component",
+      "target": "@ui/notification-builder.tsx"
+    },
+    {
+      "path": "registry/new-york/notification-builder/notification-builder.types.ts",
+      "type": "registry:component",
+      "target": "@ui/notification-builder.types.ts"
     }
-  ]
+  ],
+  "dependencies": []
 }

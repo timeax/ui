@@ -2,15 +2,22 @@
   "name": "split-button",
   "type": "registry:ui",
   "dependencies": [
-    "@radix-ui/react-dropdown-menu"
+    "@radix-ui/react-dropdown-menu",
+    "lucide-react"
   ],
   "registryDependencies": [
     "smart-button"
   ],
   "files": [
     {
+      "path": "registry/new-york/split-button/split-button-demo.tsx",
+      "type": "registry:component",
+      "target": "@ui/split-button-demo.tsx"
+    },
+    {
       "path": "registry/new-york/split-button/split-button.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/split-button.tsx"
     }
   ]
 }

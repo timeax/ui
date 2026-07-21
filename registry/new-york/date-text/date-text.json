@@ -8,11 +8,13 @@
   "files": [
     {
       "path": "registry/new-york/date-text/date-text.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/date-text.tsx"
     },
     {
       "path": "registry/new-york/date-text/index.ts",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/index.ts"
     }
   ]
 }

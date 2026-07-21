@@ -2,12 +2,20 @@
   "name": "speed-dial",
   "type": "registry:ui",
   "dependencies": [
-    "framer-motion"
+    "framer-motion",
+    "lucide-react"
   ],
   "files": [
     {
+      "path": "registry/new-york/speed-dial/speed-dial-demo.tsx",
+      "type": "registry:component",
+      "target": "@ui/speed-dial-demo.tsx"
+    },
+    {
       "path": "registry/new-york/speed-dial/speed-dial.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/speed-dial.tsx"
     }
-  ]
+  ],
+  "registryDependencies": []
 }

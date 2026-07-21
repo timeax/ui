@@ -10,12 +10,14 @@
   ],
   "files": [
     {
-      "path": "registry/new-york/smart-popover/smart-popover.tsx",
-      "type": "registry:ui"
+      "path": "registry/new-york/smart-popover/index.ts",
+      "type": "registry:component",
+      "target": "@ui/index.ts"
     },
     {
-      "path": "registry/new-york/smart-popover/index.ts",
-      "type": "registry:ui"
+      "path": "registry/new-york/smart-popover/smart-popover.tsx",
+      "type": "registry:component",
+      "target": "@ui/smart-popover.tsx"
     }
   ]
 }

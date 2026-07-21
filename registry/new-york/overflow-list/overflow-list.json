@@ -8,11 +8,13 @@
   "files": [
     {
       "path": "registry/new-york/overflow-list/overflow-list.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/overflow-list.tsx"
     },
     {
       "path": "registry/new-york/overflow-list/overflow-list.types.ts",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/overflow-list.types.ts"
     }
   ]
 }

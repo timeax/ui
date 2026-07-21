@@ -7,9 +7,15 @@
   ],
   "files": [
     {
+      "path": "registry/new-york/smart-button/smart-button-demo.tsx",
+      "type": "registry:component",
+      "target": "@ui/smart-button-demo.tsx"
+    },
+    {
       "path": "registry/new-york/smart-button/smart-button.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/smart-button.tsx"
+      "type": "registry:component",
+      "target": "@ui/smart-button.tsx"
     }
-  ]
+  ],
+  "registryDependencies": []
 }

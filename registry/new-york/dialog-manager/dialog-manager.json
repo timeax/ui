@@ -12,27 +12,33 @@
   "files": [
     {
       "path": "registry/new-york/dialog-manager/create-dialog.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/create-dialog.tsx"
     },
     {
       "path": "registry/new-york/dialog-manager/dialog-compound.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/dialog-compound.tsx"
     },
     {
       "path": "registry/new-york/dialog-manager/dialog-manager.types.ts",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/dialog-manager.types.ts"
     },
     {
       "path": "registry/new-york/dialog-manager/dialog-provider.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/dialog-provider.tsx"
     },
     {
       "path": "registry/new-york/dialog-manager/dialog-store.ts",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/dialog-store.ts"
     },
     {
       "path": "registry/new-york/dialog-manager/index.ts",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/index.ts"
     }
   ]
 }

@@ -9,29 +9,34 @@
   ],
   "files": [
     {
-      "path": "registry/new-york/actions-toolbox/toolbox.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/toolbox.tsx"
+      "path": "registry/new-york/actions-toolbox/actions-toolbox-demo.tsx",
+      "type": "registry:component",
+      "target": "@ui/actions-toolbox-demo.tsx"
     },
     {
       "path": "registry/new-york/actions-toolbox/actions.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/actions.tsx"
+      "type": "registry:component",
+      "target": "@ui/actions.tsx"
     },
     {
       "path": "registry/new-york/actions-toolbox/bulk-toolbar.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/bulk-toolbar.tsx"
+      "type": "registry:component",
+      "target": "@ui/bulk-toolbar.tsx"
     },
     {
       "path": "registry/new-york/actions-toolbox/bulk-utils.ts",
-      "type": "registry:ui",
-      "target": "components/ui/bulk-utils.ts"
+      "type": "registry:component",
+      "target": "@ui/bulk-utils.ts"
     },
     {
-      "path": "registry/new-york/actions-toolbox/actions-toolbox-demo.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/actions-toolbox-demo.tsx"
+      "path": "registry/new-york/actions-toolbox/toolbox.tsx",
+      "type": "registry:component",
+      "target": "@ui/toolbox.tsx"
     }
+  ],
+  "registryDependencies": [
+    "button",
+    "dropdown-menu",
+    "tooltip"
   ]
 }

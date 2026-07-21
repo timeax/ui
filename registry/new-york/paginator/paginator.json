@@ -13,15 +13,18 @@
   "files": [
     {
       "path": "registry/new-york/paginator/index.ts",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/index.ts"
     },
     {
       "path": "registry/new-york/paginator/paginator-demo.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/paginator-demo.tsx"
     },
     {
       "path": "registry/new-york/paginator/paginator.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/paginator.tsx"
     }
   ]
 }

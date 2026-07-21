@@ -9,7 +9,8 @@
   "files": [
     {
       "path": "registry/new-york/dropdown-menu/dropdown-menu.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/dropdown-menu.tsx"
     }
   ]
 }

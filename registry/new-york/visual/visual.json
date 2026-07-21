@@ -8,15 +8,18 @@
   "files": [
     {
       "path": "registry/new-york/visual/visual-demo.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/visual-demo.tsx"
     },
     {
       "path": "registry/new-york/visual/visual-image.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/visual-image.tsx"
     },
     {
       "path": "registry/new-york/visual/visual.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/visual.tsx"
     }
   ]
 }

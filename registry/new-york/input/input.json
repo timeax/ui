@@ -6,7 +6,8 @@
   "files": [
     {
       "path": "registry/new-york/input/input.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/input.tsx"
     }
   ]
 }

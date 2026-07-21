@@ -3,12 +3,20 @@
   "type": "registry:ui",
   "dependencies": [
     "class-variance-authority",
-    "@radix-ui/react-slot"
+    "@radix-ui/react-slot",
+    "lucide-react"
   ],
   "files": [
     {
+      "path": "registry/new-york/text/text-demo.tsx",
+      "type": "registry:component",
+      "target": "@ui/text-demo.tsx"
+    },
+    {
       "path": "registry/new-york/text/text.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/text.tsx"
     }
-  ]
+  ],
+  "registryDependencies": []
 }

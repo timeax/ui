@@ -1,14 +1,22 @@
 {
   "name": "icon-card",
   "type": "registry:ui",
-  "dependencies": [],
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "card"
   ],
   "files": [
     {
+      "path": "registry/new-york/icon-card/icon-card-demo.tsx",
+      "type": "registry:component",
+      "target": "@ui/icon-card-demo.tsx"
+    },
+    {
       "path": "registry/new-york/icon-card/icon-card.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/icon-card.tsx"
     }
   ]
 }

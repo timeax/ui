@@ -6,7 +6,8 @@
   "files": [
     {
       "path": "registry/new-york/infinite-scroller/infinite-scroller.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/infinite-scroller.tsx"
     }
   ]
 }

@@ -10,7 +10,8 @@
   "files": [
     {
       "path": "registry/new-york/command/command.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/command.tsx"
     }
   ]
 }

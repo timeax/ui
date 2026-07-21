@@ -10,32 +10,39 @@
   ],
   "files": [
     {
-      "path": "registry/new-york/sidebar-manager/sidebar-manager.types.ts",
-      "type": "registry:ui"
-    },
-    {
-      "path": "registry/new-york/sidebar-manager/sidebar-store.ts",
-      "type": "registry:ui"
-    },
-    {
-      "path": "registry/new-york/sidebar-manager/sidebar-provider.tsx",
-      "type": "registry:ui"
-    },
-    {
       "path": "registry/new-york/sidebar-manager/create-sidebar.tsx",
-      "type": "registry:ui"
-    },
-    {
-      "path": "registry/new-york/sidebar-manager/sidebar-compound.tsx",
-      "type": "registry:ui"
-    },
-    {
-      "path": "registry/new-york/sidebar-manager/sidebar-host.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/create-sidebar.tsx"
     },
     {
       "path": "registry/new-york/sidebar-manager/index.ts",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/index.ts"
+    },
+    {
+      "path": "registry/new-york/sidebar-manager/sidebar-compound.tsx",
+      "type": "registry:component",
+      "target": "@ui/sidebar-compound.tsx"
+    },
+    {
+      "path": "registry/new-york/sidebar-manager/sidebar-host.tsx",
+      "type": "registry:component",
+      "target": "@ui/sidebar-host.tsx"
+    },
+    {
+      "path": "registry/new-york/sidebar-manager/sidebar-manager.types.ts",
+      "type": "registry:component",
+      "target": "@ui/sidebar-manager.types.ts"
+    },
+    {
+      "path": "registry/new-york/sidebar-manager/sidebar-provider.tsx",
+      "type": "registry:component",
+      "target": "@ui/sidebar-provider.tsx"
+    },
+    {
+      "path": "registry/new-york/sidebar-manager/sidebar-store.ts",
+      "type": "registry:component",
+      "target": "@ui/sidebar-store.ts"
     }
   ]
 }

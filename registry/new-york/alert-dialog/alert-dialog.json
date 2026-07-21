@@ -10,7 +10,8 @@
   "files": [
     {
       "path": "registry/new-york/alert-dialog/alert-dialog.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/alert-dialog.tsx"
     }
   ]
 }

@@ -4,7 +4,10 @@
   "files": [
     {
       "path": "registry/new-york/hooks/use-mobile.tsx",
-      "type": "registry:hook"
+      "type": "registry:hook",
+      "target": "@hooks/use-mobile.tsx"
     }
-  ]
+  ],
+  "dependencies": [],
+  "registryDependencies": []
 }

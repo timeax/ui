@@ -9,7 +9,8 @@
   "files": [
     {
       "path": "registry/new-york/select/select.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/select.tsx"
     }
   ]
 }

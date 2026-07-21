@@ -10,11 +10,13 @@
   "files": [
     {
       "path": "registry/new-york/command-search/command-search.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/command-search.tsx"
     },
     {
       "path": "registry/new-york/command-search/command-search.types.ts",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/command-search.types.ts"
     }
   ]
 }

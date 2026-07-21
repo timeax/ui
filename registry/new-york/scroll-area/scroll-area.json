@@ -8,7 +8,8 @@
   "files": [
     {
       "path": "registry/new-york/scroll-area/scroll-area.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/scroll-area.tsx"
     }
   ]
 }

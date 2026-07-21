@@ -11,7 +11,8 @@
   "files": [
     {
       "path": "registry/new-york/headless-responsive-dialog/headless-responsive-dialog.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/headless-responsive-dialog.tsx"
     }
   ]
 }

@@ -9,29 +9,29 @@
   ],
   "files": [
     {
-      "path": "registry/new-york/feed-renderer/feed-renderer.types.ts",
-      "type": "registry:ui",
-      "target": "components/ui/feed-renderer.types.ts"
+      "path": "registry/new-york/feed-renderer/feed-renderer-demo.tsx",
+      "type": "registry:component",
+      "target": "@ui/feed-renderer-demo.tsx"
     },
     {
       "path": "registry/new-york/feed-renderer/feed-renderer-parts.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/feed-renderer-parts.tsx"
+      "type": "registry:component",
+      "target": "@ui/feed-renderer-parts.tsx"
     },
     {
       "path": "registry/new-york/feed-renderer/feed-renderer.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/feed-renderer.tsx"
+      "type": "registry:component",
+      "target": "@ui/feed-renderer.tsx"
     },
     {
-      "path": "registry/new-york/feed-renderer/feed-renderer-demo.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/feed-renderer-demo.tsx"
+      "path": "registry/new-york/feed-renderer/feed-renderer.types.ts",
+      "type": "registry:component",
+      "target": "@ui/feed-renderer.types.ts"
     },
     {
       "path": "registry/new-york/feed-renderer/logger-provider.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/logger-provider.tsx"
+      "type": "registry:component",
+      "target": "@ui/logger-provider.tsx"
     }
   ]
 }

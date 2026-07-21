@@ -9,7 +9,8 @@
   "files": [
     {
       "path": "registry/new-york/dialog/dialog.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/dialog.tsx"
     }
   ]
 }

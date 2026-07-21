@@ -6,7 +6,8 @@
   "files": [
     {
       "path": "registry/new-york/table/table.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/table.tsx"
     }
   ]
 }

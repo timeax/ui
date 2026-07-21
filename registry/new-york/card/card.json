@@ -5,7 +5,9 @@
   "files": [
     {
       "path": "registry/new-york/card/card.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/card.tsx"
     }
-  ]
+  ],
+  "registryDependencies": []
 }

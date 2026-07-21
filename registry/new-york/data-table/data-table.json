@@ -19,23 +19,28 @@
   "files": [
     {
       "path": "registry/new-york/data-table/data-table-demo.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/data-table-demo.tsx"
     },
     {
       "path": "registry/new-york/data-table/data-table.hooks.ts",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/data-table.hooks.ts"
     },
     {
       "path": "registry/new-york/data-table/data-table.tsx",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/data-table.tsx"
     },
     {
       "path": "registry/new-york/data-table/data-table.types.ts",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/data-table.types.ts"
     },
     {
       "path": "registry/new-york/data-table/data-table.utils.ts",
-      "type": "registry:ui"
+      "type": "registry:component",
+      "target": "@ui/data-table.utils.ts"
     }
   ]
 }
