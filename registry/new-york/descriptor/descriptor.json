@@ -1,9 +1,7 @@
 {
   "name": "descriptor",
   "type": "registry:ui",
-  "dependencies": [
-    "clsx"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "text",
     "visual"

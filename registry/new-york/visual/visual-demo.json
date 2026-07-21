@@ -1,0 +1,15 @@
+{
+  "name": "visual-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "visual"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/visual/visual-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/visual-demo.tsx"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "peek-dots-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "peek-dots",
+    "smart-card"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/peek-dots/peek-dots-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/peek-dots-demo.tsx"
+    }
+  ]
+}

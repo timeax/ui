@@ -1,0 +1,17 @@
+{
+  "name": "actions-toolbox-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "actions-toolbox"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/actions-toolbox/actions-toolbox-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/actions-toolbox-demo.tsx"
+    }
+  ]
+}

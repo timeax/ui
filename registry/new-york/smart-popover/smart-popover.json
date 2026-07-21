@@ -1,9 +1,7 @@
 {
   "name": "smart-popover",
   "type": "registry:ui",
-  "dependencies": [
-    "clsx"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "popover",
     "smart-button"

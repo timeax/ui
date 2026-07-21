@@ -1,0 +1,16 @@
+{
+  "name": "paginator-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "paginator",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/paginator/paginator-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/paginator-demo.tsx"
+    }
+  ]
+}

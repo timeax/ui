@@ -1,0 +1,17 @@
+{
+  "name": "text-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "text"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/text/text-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/text-demo.tsx"
+    }
+  ]
+}

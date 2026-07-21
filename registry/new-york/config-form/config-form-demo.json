@@ -1,0 +1,15 @@
+{
+  "name": "config-form-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "config-form"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/config-form/config-form-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/config-form-demo.tsx"
+    }
+  ]
+}

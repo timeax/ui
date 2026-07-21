@@ -1,0 +1,18 @@
+{
+  "name": "enhanced-tabs-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "enhanced-tabs",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/enhanced-tabs/enhanced-tabs-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/enhanced-tabs-demo.tsx"
+    }
+  ]
+}

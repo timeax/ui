@@ -1,0 +1,17 @@
+{
+  "name": "status-button-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "status-button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/status-button/status-button-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/status-button-demo.tsx"
+    }
+  ]
+}

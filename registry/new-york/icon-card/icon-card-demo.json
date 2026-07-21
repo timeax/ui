@@ -1,0 +1,17 @@
+{
+  "name": "icon-card-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "icon-card"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/icon-card/icon-card-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/icon-card-demo.tsx"
+    }
+  ]
+}

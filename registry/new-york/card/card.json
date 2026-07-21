@@ -2,12 +2,12 @@
   "name": "card",
   "type": "registry:ui",
   "dependencies": [],
+  "registryDependencies": [],
   "files": [
     {
       "path": "registry/new-york/card/card.tsx",
       "type": "registry:component",
       "target": "@ui/card.tsx"
     }
-  ],
-  "registryDependencies": []
+  ]
 }

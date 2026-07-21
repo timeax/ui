@@ -2,18 +2,12 @@
   "name": "status-button",
   "type": "registry:ui",
   "dependencies": [
-    "@radix-ui/react-slot",
     "lucide-react"
   ],
   "registryDependencies": [
     "smart-button"
   ],
   "files": [
-    {
-      "path": "registry/new-york/status-button/status-button-demo.tsx",
-      "type": "registry:component",
-      "target": "@ui/status-button-demo.tsx"
-    },
     {
       "path": "registry/new-york/status-button/status-button.tsx",
       "type": "registry:component",

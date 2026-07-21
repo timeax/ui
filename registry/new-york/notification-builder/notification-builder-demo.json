@@ -1,0 +1,15 @@
+{
+  "name": "notification-builder-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "notification-builder"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/notification-builder/notification-builder-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/notification-builder-demo.tsx"
+    }
+  ]
+}

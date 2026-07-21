@@ -1,0 +1,15 @@
+{
+  "name": "paper-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "paper"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/paper/paper-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/paper-demo.tsx"
+    }
+  ]
+}

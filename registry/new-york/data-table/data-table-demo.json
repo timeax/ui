@@ -1,0 +1,20 @@
+{
+  "name": "data-table-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "data-table",
+    "date-text",
+    "button",
+    "smart-button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/data-table/data-table-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/data-table-demo.tsx"
+    }
+  ]
+}

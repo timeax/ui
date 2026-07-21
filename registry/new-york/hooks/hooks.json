@@ -1,13 +1,13 @@
 {
-  "name": "use-mobile",
+  "name": "hooks",
   "type": "registry:hook",
+  "dependencies": [],
+  "registryDependencies": [],
   "files": [
     {
       "path": "registry/new-york/hooks/use-mobile.tsx",
       "type": "registry:hook",
       "target": "@hooks/use-mobile.tsx"
     }
-  ],
-  "dependencies": [],
-  "registryDependencies": []
+  ]
 }

@@ -2,17 +2,14 @@
   "name": "actions-toolbox",
   "type": "registry:ui",
   "dependencies": [
-    "@radix-ui/react-dropdown-menu",
-    "@radix-ui/react-tooltip",
-    "class-variance-authority",
     "lucide-react"
   ],
+  "registryDependencies": [
+    "button",
+    "dropdown-menu",
+    "tooltip"
+  ],
   "files": [
-    {
-      "path": "registry/new-york/actions-toolbox/actions-toolbox-demo.tsx",
-      "type": "registry:component",
-      "target": "@ui/actions-toolbox-demo.tsx"
-    },
     {
       "path": "registry/new-york/actions-toolbox/actions.tsx",
       "type": "registry:component",
@@ -33,10 +30,5 @@
       "type": "registry:component",
       "target": "@ui/toolbox.tsx"
     }
-  ],
-  "registryDependencies": [
-    "button",
-    "dropdown-menu",
-    "tooltip"
   ]
 }

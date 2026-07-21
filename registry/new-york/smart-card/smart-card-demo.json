@@ -1,0 +1,16 @@
+{
+  "name": "smart-card-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "smart-card",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/smart-card/smart-card-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/smart-card-demo.tsx"
+    }
+  ]
+}

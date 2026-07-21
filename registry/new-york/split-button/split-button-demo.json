@@ -1,0 +1,17 @@
+{
+  "name": "split-button-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "split-button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/split-button/split-button-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/split-button-demo.tsx"
+    }
+  ]
+}

@@ -58,8 +58,15 @@ function resolveComponentDependency(imp, folder) {
     return null;
 }
 
+function cleanExistingJsonFiles(folderPath) {
+    const jsonFiles = fs.readdirSync(folderPath).filter(file => file.endsWith('.json'));
+    for (const jsonFile of jsonFiles) {
+        fs.unlinkSync(path.join(folderPath, jsonFile));
+    }
+}
+
 function buildRegistry() {
-    console.log('Building Shadcn Component Registry with strict components.json alias rules...');
+    console.log('Building Shadcn Component Registry with separated demo blocks...');
     
     const folders = fs.readdirSync(REGISTRY_DIR).filter(file => {
         return fs.statSync(path.join(REGISTRY_DIR, file)).isDirectory();
@@ -69,82 +76,110 @@ function buildRegistry() {
     
     for (const folder of folders) {
         const folderPath = path.join(REGISTRY_DIR, folder);
-        const jsonFiles = fs.readdirSync(folderPath).filter(file => file.endsWith('.json'));
-        
-        let item;
         const tsFiles = fs.readdirSync(folderPath).filter(file => file.endsWith('.tsx') || file.endsWith('.ts'));
         
-        if (jsonFiles.length > 0) {
-            const jsonPath = path.join(folderPath, jsonFiles[0]);
-            try {
-                item = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
-                console.log(`Loaded existing registry definition: ${folder}/${jsonFiles[0]}`);
-            } catch (e) {
-                console.error(`Error reading registry json ${jsonPath}:`, e);
-            }
-        }
+        // Clean all JSON files in the folder first so we recreate them cleanly
+        cleanExistingJsonFiles(folderPath);
         
-        if (!item) {
-            item = {
-                name: folder,
-                type: folder === 'hooks' ? 'registry:hook' : 'registry:ui',
-                dependencies: [],
-                registryDependencies: [],
-                files: []
-            };
-        }
+        const coreFiles = tsFiles.filter(file => !/[-_]demo\.(tsx|ts)$/i.test(file));
+        const demoFiles = tsFiles.filter(file => /[-_]demo\.(tsx|ts)$/i.test(file));
         
-        // Auto-detect dependencies & files if not present or to ensure updates
-        const dependencies = new Set(item.dependencies || []);
-        const registryDependencies = new Set(item.registryDependencies || []);
-        
-        for (const file of tsFiles) {
-            const filePath = path.join(folderPath, file);
-            const content = fs.readFileSync(filePath, 'utf8');
-            const imports = getImports(content);
+        // 1. Build Core Component Item
+        if (coreFiles.length > 0) {
+            const dependencies = new Set();
+            const registryDependencies = new Set();
             
-            for (const imp of imports) {
-                for (const [npmKey, npmVal] of NPM_DEPS_MAP.entries()) {
-                    if (imp === npmKey || imp.startsWith(npmKey + '/')) {
-                        dependencies.add(npmVal);
+            for (const file of coreFiles) {
+                const filePath = path.join(folderPath, file);
+                const content = fs.readFileSync(filePath, 'utf8');
+                const imports = getImports(content);
+                
+                for (const imp of imports) {
+                    for (const [npmKey, npmVal] of NPM_DEPS_MAP.entries()) {
+                        if (imp === npmKey || imp.startsWith(npmKey + '/')) {
+                            dependencies.add(npmVal);
+                        }
+                    }
+                    const regDep = resolveComponentDependency(imp, folder);
+                    if (regDep && regDep !== folder) {
+                        registryDependencies.add(regDep);
                     }
                 }
-                const regDep = resolveComponentDependency(imp, folder);
-                if (regDep && regDep !== folder) {
-                    registryDependencies.add(regDep);
-                }
             }
+            
+            // Add radix-ui primitives based on standard components if not detected
+            if (folder === 'checkbox') dependencies.add('@radix-ui/react-checkbox');
+            if (folder === 'dialog') dependencies.add('@radix-ui/react-dialog');
+            if (folder === 'dropdown-menu') dependencies.add('@radix-ui/react-dropdown-menu');
+            if (folder === 'scroll-area') dependencies.add('@radix-ui/react-scroll-area');
+            if (folder === 'select') dependencies.add('@radix-ui/react-select');
+            if (folder === 'popover') dependencies.add('@radix-ui/react-popover');
+            if (folder === 'tabs') dependencies.add('@radix-ui/react-tabs');
+            if (folder === 'tooltip') dependencies.add('@radix-ui/react-tooltip');
+            
+            const coreItem = {
+                name: folder,
+                type: folder === 'hooks' ? 'registry:hook' : 'registry:ui',
+                dependencies: Array.from(dependencies),
+                registryDependencies: Array.from(registryDependencies),
+                files: coreFiles.map(file => {
+                    const isHook = folder === 'hooks' || file.startsWith('use-');
+                    return {
+                        path: `registry/new-york/${folder}/${file}`,
+                        type: isHook ? 'registry:hook' : 'registry:component',
+                        target: isHook ? `@hooks/${file}` : `@ui/${file}`
+                    };
+                })
+            };
+            
+            const coreJsonPath = path.join(folderPath, `${folder}.json`);
+            fs.writeFileSync(coreJsonPath, JSON.stringify(coreItem, null, 2), 'utf8');
+            console.log(`Created core JSON: ${coreJsonPath}`);
+            items.push(coreItem);
         }
         
-        // Add radix-ui primitives based on standard components if not detected
-        if (folder === 'checkbox') dependencies.add('@radix-ui/react-checkbox');
-        if (folder === 'dialog') dependencies.add('@radix-ui/react-dialog');
-        if (folder === 'dropdown-menu') dependencies.add('@radix-ui/react-dropdown-menu');
-        if (folder === 'scroll-area') dependencies.add('@radix-ui/react-scroll-area');
-        if (folder === 'select') dependencies.add('@radix-ui/react-select');
-        if (folder === 'popover') dependencies.add('@radix-ui/react-popover');
-        if (folder === 'tabs') dependencies.add('@radix-ui/react-tabs');
-        if (folder === 'tooltip') dependencies.add('@radix-ui/react-tooltip');
-        
-        item.dependencies = Array.from(dependencies);
-        item.registryDependencies = Array.from(registryDependencies);
-        
-        // strictly enforce shadcn target and file types
-        item.files = tsFiles.map(file => {
-            const isHook = folder === 'hooks' || file.startsWith('use-');
-            return {
-                path: `registry/new-york/${folder}/${file}`,
-                type: isHook ? 'registry:hook' : 'registry:component',
-                target: isHook ? `@hooks/${file}` : `@ui/${file}`
+        // 2. Build Demo Block Item (if demo files exist)
+        if (demoFiles.length > 0) {
+            const dependencies = new Set();
+            const registryDependencies = new Set([folder]); // Depends on the core component
+            
+            for (const file of demoFiles) {
+                const filePath = path.join(folderPath, file);
+                const content = fs.readFileSync(filePath, 'utf8');
+                const imports = getImports(content);
+                
+                for (const imp of imports) {
+                    for (const [npmKey, npmVal] of NPM_DEPS_MAP.entries()) {
+                        if (imp === npmKey || imp.startsWith(npmKey + '/')) {
+                            dependencies.add(npmVal);
+                        }
+                    }
+                    const regDep = resolveComponentDependency(imp, folder);
+                    if (regDep && regDep !== folder) {
+                        registryDependencies.add(regDep);
+                    }
+                }
+            }
+            
+            const demoItem = {
+                name: `${folder}-demo`,
+                type: 'registry:block',
+                dependencies: Array.from(dependencies),
+                registryDependencies: Array.from(registryDependencies),
+                files: demoFiles.map(file => {
+                    return {
+                        path: `registry/new-york/${folder}/${file}`,
+                        type: 'registry:block',
+                        target: `@ui/${file}`
+                    };
+                })
             };
-        });
-        
-        // Save back individual JSON with normalized properties
-        const individualJsonPath = path.join(folderPath, jsonFiles[0] || `${folder}.json`);
-        fs.writeFileSync(individualJsonPath, JSON.stringify(item, null, 2), 'utf8');
-        console.log(`Updated component JSON metadata: ${individualJsonPath}`);
-        
-        items.push(item);
+            
+            const demoJsonPath = path.join(folderPath, `${folder}-demo.json`);
+            fs.writeFileSync(demoJsonPath, JSON.stringify(demoItem, null, 2), 'utf8');
+            console.log(`Created demo JSON: ${demoJsonPath}`);
+            items.push(demoItem);
+        }
     }
     
     const rootRegistry = {

@@ -1,0 +1,17 @@
+{
+  "name": "speed-dial-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "speed-dial"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/speed-dial/speed-dial-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/speed-dial-demo.tsx"
+    }
+  ]
+}

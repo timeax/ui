@@ -1,6 +1,7 @@
 {
   "name": "notification-builder",
   "type": "registry:ui",
+  "dependencies": [],
   "registryDependencies": [
     "feed-renderer",
     "smart-button"
@@ -10,11 +11,6 @@
       "path": "registry/new-york/notification-builder/notification-builder-context.tsx",
       "type": "registry:component",
       "target": "@ui/notification-builder-context.tsx"
-    },
-    {
-      "path": "registry/new-york/notification-builder/notification-builder-demo.tsx",
-      "type": "registry:component",
-      "target": "@ui/notification-builder-demo.tsx"
     },
     {
       "path": "registry/new-york/notification-builder/notification-builder-inspector.tsx",
@@ -36,6 +32,5 @@
       "type": "registry:component",
       "target": "@ui/notification-builder.types.ts"
     }
-  ],
-  "dependencies": []
+  ]
 }

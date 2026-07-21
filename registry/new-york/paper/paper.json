@@ -4,17 +4,12 @@
   "dependencies": [
     "class-variance-authority"
   ],
+  "registryDependencies": [],
   "files": [
-    {
-      "path": "registry/new-york/paper/paper-demo.tsx",
-      "type": "registry:component",
-      "target": "@ui/paper-demo.tsx"
-    },
     {
       "path": "registry/new-york/paper/paper.tsx",
       "type": "registry:component",
       "target": "@ui/paper.tsx"
     }
-  ],
-  "registryDependencies": []
+  ]
 }

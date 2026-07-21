@@ -9,11 +9,6 @@
   ],
   "files": [
     {
-      "path": "registry/new-york/smart-card/smart-card-demo.tsx",
-      "type": "registry:component",
-      "target": "@ui/smart-card-demo.tsx"
-    },
-    {
       "path": "registry/new-york/smart-card/smart-card.tsx",
       "type": "registry:component",
       "target": "@ui/smart-card.tsx"

@@ -5,23 +5,17 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "date-text",
-    "button",
-    "smart-button",
     "checkbox",
+    "button",
     "scroll-area",
     "table",
     "dropdown-menu",
     "text",
     "status-button",
+    "date-text",
     "paginator"
   ],
   "files": [
-    {
-      "path": "registry/new-york/data-table/data-table-demo.tsx",
-      "type": "registry:component",
-      "target": "@ui/data-table-demo.tsx"
-    },
     {
       "path": "registry/new-york/data-table/data-table.hooks.ts",
       "type": "registry:component",

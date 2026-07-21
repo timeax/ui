@@ -5,7 +5,6 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "card",
     "button",
     "input",
     "select"
@@ -15,11 +14,6 @@
       "path": "registry/new-york/paginator/index.ts",
       "type": "registry:component",
       "target": "@ui/index.ts"
-    },
-    {
-      "path": "registry/new-york/paginator/paginator-demo.tsx",
-      "type": "registry:component",
-      "target": "@ui/paginator-demo.tsx"
     },
     {
       "path": "registry/new-york/paginator/paginator.tsx",

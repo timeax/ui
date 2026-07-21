@@ -5,17 +5,11 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "card",
     "tabs",
     "dropdown-menu",
     "overflow-list"
   ],
   "files": [
-    {
-      "path": "registry/new-york/enhanced-tabs/enhanced-tabs-demo.tsx",
-      "type": "registry:component",
-      "target": "@ui/enhanced-tabs-demo.tsx"
-    },
     {
       "path": "registry/new-york/enhanced-tabs/enhanced-tabs.tsx",
       "type": "registry:component",

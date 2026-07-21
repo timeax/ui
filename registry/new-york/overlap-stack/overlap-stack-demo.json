@@ -1,0 +1,16 @@
+{
+  "name": "overlap-stack-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "overlap-stack",
+    "visual"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/overlap-stack/overlap-stack-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/overlap-stack-demo.tsx"
+    }
+  ]
+}

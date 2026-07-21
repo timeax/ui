@@ -2,15 +2,8 @@
   "name": "peek-dots",
   "type": "registry:ui",
   "dependencies": [],
-  "registryDependencies": [
-    "smart-card"
-  ],
+  "registryDependencies": [],
   "files": [
-    {
-      "path": "registry/new-york/peek-dots/peek-dots-demo.tsx",
-      "type": "registry:component",
-      "target": "@ui/peek-dots-demo.tsx"
-    },
     {
       "path": "registry/new-york/peek-dots/peek-dots.tsx",
       "type": "registry:component",

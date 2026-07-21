@@ -1,9 +1,7 @@
 {
   "name": "sidebar-manager",
   "type": "registry:ui",
-  "dependencies": [
-    "lucide-react"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "sheet",
     "scroll-area"

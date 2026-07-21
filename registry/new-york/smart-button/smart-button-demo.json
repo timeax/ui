@@ -1,0 +1,17 @@
+{
+  "name": "smart-button-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "smart-button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/smart-button/smart-button-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/smart-button-demo.tsx"
+    }
+  ]
+}

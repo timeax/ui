@@ -15,11 +15,6 @@
   ],
   "files": [
     {
-      "path": "registry/new-york/config-form/config-form-demo.tsx",
-      "type": "registry:component",
-      "target": "@ui/config-form-demo.tsx"
-    },
-    {
       "path": "registry/new-york/config-form/config-form.tsx",
       "type": "registry:component",
       "target": "@ui/config-form.tsx"

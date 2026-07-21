@@ -1,0 +1,15 @@
+{
+  "name": "feed-renderer-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "feed-renderer"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/feed-renderer/feed-renderer-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/feed-renderer-demo.tsx"
+    }
+  ]
+}

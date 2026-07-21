@@ -5,17 +5,12 @@
     "framer-motion",
     "lucide-react"
   ],
+  "registryDependencies": [],
   "files": [
-    {
-      "path": "registry/new-york/speed-dial/speed-dial-demo.tsx",
-      "type": "registry:component",
-      "target": "@ui/speed-dial-demo.tsx"
-    },
     {
       "path": "registry/new-york/speed-dial/speed-dial.tsx",
       "type": "registry:component",
       "target": "@ui/speed-dial.tsx"
     }
-  ],
-  "registryDependencies": []
+  ]
 }
