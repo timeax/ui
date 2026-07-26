@@ -199,6 +199,42 @@
       ]
     },
     {
+      "name": "custom-popover",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/custom-popover/custom-popover.tsx",
+          "type": "registry:component",
+          "target": "@ui/custom-popover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "custom-popover-demo",
+      "type": "registry:block",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "custom-popover",
+        "card",
+        "button",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/custom-popover/custom-popover-demo.tsx",
+          "type": "registry:block",
+          "target": "@ui/custom-popover-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "data-table",
       "type": "registry:ui",
       "dependencies": [

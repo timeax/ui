@@ -1,0 +1,21 @@
+{
+  "name": "custom-popover-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "custom-popover",
+    "card",
+    "button",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/custom-popover/custom-popover-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/custom-popover-demo.tsx"
+    }
+  ]
+}

@@ -39,11 +39,12 @@ import DialogCompoundDemo from './components/demos/dialog-compound-demo';
 import SidebarManagerDemo from './components/demos/sidebar-manager-demo';
 import DescriptorDemo from './components/demos/descriptor-demo';
 import SmartPopoverDemo from './components/demos/smart-popover-demo';
+import CustomPopoverDemo from './components/demos/custom-popover-demo';
 import RevealDemo from './components/demos/reveal-demo';
 import FeedRendererDemo from './components/demos/feed-renderer-demo';
 import NotificationBuilderDemo from './components/demos/notification-builder-demo';
 import ActionsToolboxDemo from './components/demos/actions-toolbox-demo';
-import ConfigFormDemo from './components/demos/config-form-demo';
+// import ConfigFormDemo from './components/demos/config-form-demo';
 import { SidebarHost } from './components/ui/sidebar-manager/sidebar-host';
 
 type ComponentId =
@@ -70,11 +71,12 @@ type ComponentId =
   | 'sidebar-manager'
   | 'descriptor'
   | 'smart-popover'
+  | 'custom-popover'
   | 'reveal'
   | 'feed-renderer'
   | 'notification-builder'
-  | 'actions-toolbox'
-  | 'config-form';
+  | 'actions-toolbox';
+  // | 'config-form';
 
 
 
@@ -242,6 +244,13 @@ const COMPONENTS: RegistryComponent[] = [
     demo: SmartPopoverDemo,
   },
   {
+    id: 'custom-popover',
+    name: 'Custom Popover',
+    category: 'Basic Primitives',
+    icon: LayoutGrid,
+    demo: CustomPopoverDemo,
+  },
+  {
     id: 'reveal',
     name: 'Reveal Control',
     category: 'Basic Primitives',
@@ -278,13 +287,13 @@ const COMPONENTS: RegistryComponent[] = [
     icon: LayoutGrid,
     demo: ActionsToolboxDemo,
   },
-  {
-    id: 'config-form',
-    name: 'Config Form Adapter',
-    category: 'Data & Tables',
-    icon: LayoutGrid,
-    demo: ConfigFormDemo,
-  },
+  // {
+  //   id: 'config-form',
+  //   name: 'Config Form Adapter',
+  //   category: 'Data & Tables',
+  //   icon: LayoutGrid,
+  //   demo: ConfigFormDemo,
+  // },
 ];
 
 function App() {
