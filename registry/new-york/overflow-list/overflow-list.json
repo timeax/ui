@@ -4,7 +4,9 @@
   "dependencies": [
     "lucide-react"
   ],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "dropdown-menu"
+  ],
   "files": [
     {
       "path": "registry/new-york/overflow-list/overflow-list.tsx",

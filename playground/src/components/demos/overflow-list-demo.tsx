@@ -2,7 +2,7 @@ import * as React from 'react';
 import { OverflowList } from '../ui/overflow-list/overflow-list';
 import { Button } from '../ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu';
-import { MoreHorizontal, Plus, FileText, Share2, Printer, Trash2, ArrowRightLeft, PenTool, Download, Copy, Check } from 'lucide-react';
+import { MoreHorizontal, Plus, FileText, Share2, Printer, Trash2, ArrowRightLeft, PenTool, Download, Copy, Check, MoreVertical } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ActionItem {
@@ -26,12 +26,18 @@ const ACTION_ITEMS: ActionItem[] = [
 
 export function OverflowListDemo() {
     const [overflowMode, setOverflowMode] = React.useState<'scroll' | 'dropdown' | 'both'>('dropdown');
+    const [direction, setDirection] = React.useState<'horizontal' | 'vertical'>('horizontal');
+    const [triggerMode, setTriggerMode] = React.useState<'builtin' | 'custom-trigger' | 'custom-render'>('builtin');
     const [scrollBehavior, setScrollBehavior] = React.useState<'smooth' | 'auto'>('smooth');
     const [scrollStep, setScrollStep] = React.useState<'half' | 'page'>('half');
+    const [customMoreStyle, setCustomMoreStyle] = React.useState(false);
     
-    // Configurable container width to test resizing on screen
+    // Configurable container dimensions to test resizing on screen
     const [containerWidth, setContainerWidth] = React.useState<number>(450);
+    const [containerHeight, setContainerHeight] = React.useState<number>(220);
     const [activeActionId, setActiveActionId] = React.useState<string>('new');
+
+    const isVertical = direction === 'vertical';
 
     const renderActionBtn = (action: ActionItem, isCollapsed: boolean) => {
         const isActive = action.id === activeActionId;
@@ -58,7 +64,7 @@ export function OverflowListDemo() {
                 variant={isActive ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setActiveActionId(action.id)}
-                className={cn("flex items-center gap-2 h-8 whitespace-nowrap", isActive && "active")}
+                className={cn("flex items-center gap-2 h-8 whitespace-nowrap", isVertical && "w-full justify-start", isActive && "active")}
             >
                 <span className={isActive ? 'text-primary-foreground' : action.color}>{action.icon}</span>
                 <span>{action.label}</span>
@@ -66,25 +72,48 @@ export function OverflowListDemo() {
         );
     };
 
-    const renderMoreDropdown = (collapsedActions: ActionItem[]) => {
+    const renderCustomDropdown = (collapsedActions: ActionItem[], triggerNode?: React.ReactNode) => {
         return (
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <button
-                        className="flex h-8 w-8 items-center justify-center rounded-md border border-input bg-background text-muted-foreground hover:text-foreground hover:bg-accent hover:cursor-pointer transition-colors"
-                        aria-label="More actions"
-                    >
-                        <MoreHorizontal className="h-4 w-4" />
-                    </button>
+                    {triggerNode ?? (
+                        <button
+                            className={cn(
+                                "flex h-8 items-center justify-center rounded-md border border-input bg-background text-muted-foreground hover:text-foreground hover:bg-accent hover:cursor-pointer transition-colors",
+                                isVertical ? "w-full gap-2 px-3" : "w-8"
+                            )}
+                            aria-label="More actions"
+                        >
+                            {isVertical ? (
+                                <>
+                                    <MoreVertical className="h-4 w-4" />
+                                    <span className="text-xs font-medium">More ({collapsedActions.length})</span>
+                                </>
+                            ) : (
+                                <MoreHorizontal className="h-4 w-4" />
+                            )}
+                        </button>
+                    )}
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56 max-h-64 overflow-y-auto">
+                <DropdownMenuContent align={isVertical ? "start" : "end"} className="w-56 max-h-64 overflow-y-auto">
                     <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground border-b mb-1 select-none">
-                        Collapsed Actions ({collapsedActions.length})
+                        Custom RenderMore ({collapsedActions.length})
                     </div>
                     {collapsedActions.map((item) => renderActionBtn(item, true))}
                 </DropdownMenuContent>
             </DropdownMenu>
         );
+    };
+
+    const getMoreTrigger = () => {
+        if (triggerMode === 'custom-trigger') {
+            return (count: number) => (
+                <Button size="sm" variant="secondary" className="h-8 gap-1 text-xs">
+                    +{count} More
+                </Button>
+            );
+        }
+        return undefined;
     };
 
     return (
@@ -93,12 +122,52 @@ export function OverflowListDemo() {
                 <div>
                     <h3 className="text-lg font-semibold text-foreground">Standalone OverflowList Component</h3>
                     <p className="text-sm text-muted-foreground">
-                        A dynamic layout primitive that automatically calculates DOM child widths and slices them behind a "More" trigger or manages custom scroll arrow animations.
+                        A dynamic layout primitive that automatically calculates DOM child dimensions and slices them behind a "More" trigger or manages custom scroll arrow animations in horizontal or vertical orientations.
                     </p>
                 </div>
 
                 {/* Toolbar controls */}
                 <div className="flex flex-wrap items-center gap-4 bg-muted/40 p-4 rounded-xl border text-xs">
+                    {/* Direction switch */}
+                    <div className="flex flex-col gap-1">
+                        <span className="text-muted-foreground font-medium">Direction:</span>
+                        <div className="flex border rounded-md overflow-hidden bg-background">
+                            {(['horizontal', 'vertical'] as const).map((d) => (
+                                <button
+                                    key={d}
+                                    onClick={() => setDirection(d)}
+                                    className={`px-3 py-1.5 font-medium hover:cursor-pointer transition-colors ${
+                                        direction === d ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
+                                    }`}
+                                >
+                                    {d}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Trigger Mode switch */}
+                    <div className="flex flex-col gap-1">
+                        <span className="text-muted-foreground font-medium">Dropdown / Trigger Setup:</span>
+                        <div className="flex border rounded-md overflow-hidden bg-background">
+                            {[
+                                { id: 'builtin', label: 'Built-in Dropdown' },
+                                { id: 'custom-trigger', label: 'moreTrigger Prop' },
+                                { id: 'custom-render', label: 'renderMore Callback' },
+                            ].map((m) => (
+                                <button
+                                    key={m.id}
+                                    onClick={() => setTriggerMode(m.id as any)}
+                                    className={`px-3 py-1.5 font-medium hover:cursor-pointer transition-colors ${
+                                        triggerMode === m.id ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
+                                    }`}
+                                >
+                                    {m.label}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
                     {/* Mode switch */}
                     <div className="flex flex-col gap-1">
                         <span className="text-muted-foreground font-medium">Overflow Mode:</span>
@@ -117,20 +186,50 @@ export function OverflowListDemo() {
                         </div>
                     </div>
 
-                    {/* Width slider to test container dimensions dynamically */}
-                    <div className="flex flex-col gap-1 w-48">
-                        <div className="flex justify-between text-muted-foreground">
-                            <span className="font-medium">Container Width:</span>
-                            <span className="font-mono">{containerWidth}px</span>
+                    {/* Dimension sliders */}
+                    {direction === 'horizontal' ? (
+                        <div className="flex flex-col gap-1 w-44">
+                            <div className="flex justify-between text-muted-foreground">
+                                <span className="font-medium">Width:</span>
+                                <span className="font-mono">{containerWidth}px</span>
+                            </div>
+                            <input
+                                type="range"
+                                min="200"
+                                max="800"
+                                value={containerWidth}
+                                onChange={(e) => setContainerWidth(Number(e.target.value))}
+                                className="w-full cursor-ew-resize accent-primary"
+                            />
                         </div>
-                        <input
-                            type="range"
-                            min="200"
-                            max="800"
-                            value={containerWidth}
-                            onChange={(e) => setContainerWidth(Number(e.target.value))}
-                            className="w-full cursor-ew-resize accent-primary"
-                        />
+                    ) : (
+                        <div className="flex flex-col gap-1 w-44">
+                            <div className="flex justify-between text-muted-foreground">
+                                <span className="font-medium">Height:</span>
+                                <span className="font-mono">{containerHeight}px</span>
+                            </div>
+                            <input
+                                type="range"
+                                min="120"
+                                max="450"
+                                value={containerHeight}
+                                onChange={(e) => setContainerHeight(Number(e.target.value))}
+                                className="w-full cursor-ns-resize accent-primary"
+                            />
+                        </div>
+                    )}
+
+                    {/* Custom More Styling Toggle */}
+                    <div className="flex flex-col gap-1">
+                        <span className="text-muted-foreground font-medium">More Button Styling:</span>
+                        <button
+                            onClick={() => setCustomMoreStyle(!customMoreStyle)}
+                            className={`px-3 py-1.5 font-medium border rounded-md transition-colors hover:cursor-pointer ${
+                                customMoreStyle ? 'bg-amber-500/10 border-amber-500/30 text-amber-600 dark:text-amber-400' : 'bg-background hover:bg-muted'
+                            }`}
+                        >
+                            {customMoreStyle ? 'Custom styled' : 'Default'}
+                        </button>
                     </div>
 
                     {/* Behavior physics */}
@@ -176,18 +275,24 @@ export function OverflowListDemo() {
                 {/* Resizable frame */}
                 <div className="rounded-xl border p-6 bg-card/30 backdrop-blur-md space-y-4">
                     <p className="text-xs text-muted-foreground">
-                        Adjust the slider above or resize the screen to watch the items automatically collapse or scroll!
+                        Adjust the sliders above or change direction and trigger setups to test horizontal and vertical overflow collapsing!
                     </p>
 
                     <div 
-                        style={{ width: `${containerWidth}px` }} 
+                        style={{
+                            width: isVertical ? '240px' : `${containerWidth}px`,
+                            height: isVertical ? `${containerHeight}px` : 'auto',
+                        }} 
                         className="bg-card border border-border/80 p-3 rounded-lg shadow-sm overflow-hidden transition-all duration-150"
                     >
                         <OverflowList
                             items={ACTION_ITEMS}
                             renderItem={(item) => renderActionBtn(item, false)}
-                            renderMore={renderMoreDropdown}
+                            renderMore={triggerMode === 'custom-render' ? renderCustomDropdown : undefined}
+                            moreTrigger={getMoreTrigger()}
                             overflow={overflowMode}
+                            direction={direction}
+                            moreClassName={customMoreStyle ? "ring-2 ring-primary/40 rounded-md shadow-sm" : undefined}
                             scrollBehavior={scrollBehavior}
                             scrollStep={scrollStep}
                             activeId={activeActionId}
