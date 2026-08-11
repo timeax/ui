@@ -294,6 +294,45 @@ export const SpeedDialAction: React.FC<SpeedDialActionProps> = ({
     id,
     placement = 'br',
 }) => {
+    const actionRef = React.useRef<HTMLDivElement | null>(null);
+    const [labelSide, setLabelSide] = React.useState<'left' | 'right' | 'top' | 'bottom'>(() => {
+        return placement === 'br' || placement === 'tr' ? 'left' : 'right';
+    });
+
+    const updateLabelSide = React.useCallback(() => {
+        if (!actionRef.current) return;
+        const rect = actionRef.current.getBoundingClientRect();
+        const vw = typeof window !== 'undefined' ? window.innerWidth || document.documentElement.clientWidth : 1024;
+        const vh = typeof window !== 'undefined' ? window.innerHeight || document.documentElement.clientHeight : 768;
+
+        const spaceLeft = rect.left;
+        const spaceRight = vw - rect.right;
+        const minSpace = 110;
+
+        if (spaceLeft < minSpace && spaceRight >= minSpace) {
+            setLabelSide('right');
+        } else if (spaceRight < minSpace && spaceLeft >= minSpace) {
+            setLabelSide('left');
+        } else if (spaceLeft < minSpace && spaceRight < minSpace) {
+            if (rect.top > 60) {
+                setLabelSide('top');
+            } else {
+                setLabelSide('bottom');
+            }
+        } else {
+            const preferredLeft = placement === 'br' || placement === 'tr';
+            setLabelSide(preferredLeft ? 'left' : 'right');
+        }
+    }, [placement]);
+
+    React.useEffect(() => {
+        updateLabelSide();
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', updateLabelSide);
+            return () => window.removeEventListener('resize', updateLabelSide);
+        }
+    }, [updateLabelSide]);
+
     const btnClass = cn(
         'inline-flex h-11 w-11 items-center justify-center rounded-full bg-card text-foreground shadow-md ring-1 ring-border hover:shadow-lg focus:outline-hidden focus:ring-2 focus:ring-primary/40 hover:cursor-pointer transition-all disabled:opacity-50 disabled:pointer-events-none z-10',
         className
@@ -316,17 +355,27 @@ export const SpeedDialAction: React.FC<SpeedDialActionProps> = ({
         </button>
     );
 
-    const isRightSide = placement === 'br' || placement === 'tr';
+    const sideClasses = {
+        left: 'right-full mr-3 top-1/2 -translate-y-1/2 origin-right',
+        right: 'left-full ml-3 top-1/2 -translate-y-1/2 origin-left',
+        top: 'bottom-full mb-3 left-1/2 -translate-x-1/2 origin-bottom',
+        bottom: 'top-full mt-3 left-1/2 -translate-x-1/2 origin-top',
+    };
 
     return (
-        <div className="group relative flex items-center justify-center">
+        <div
+            ref={actionRef}
+            className="group relative flex items-center justify-center"
+            onMouseEnter={updateLabelSide}
+            onFocus={updateLabelSide}
+        >
             {content}
             {label && (
                 <span
                     className={cn(
-                        'absolute rounded-md bg-popover px-2.5 py-1 text-xs font-medium text-popover-foreground shadow-sm ring-1 ring-border whitespace-nowrap',
+                        'absolute rounded-md bg-popover px-2.5 py-1 text-xs font-medium text-popover-foreground shadow-sm ring-1 ring-border whitespace-nowrap z-20',
                         'opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-150 scale-90 group-hover:scale-100',
-                        isRightSide ? 'right-full mr-3 origin-right' : 'left-full ml-3 origin-left'
+                        sideClasses[labelSide]
                     )}
                 >
                     {label}
@@ -340,3 +389,4 @@ SpeedDial.Action = SpeedDialAction;
 SpeedDial.displayName = 'SpeedDial';
 SpeedDialAction.displayName = 'SpeedDialAction';
 export default SpeedDial;
+
