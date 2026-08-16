@@ -7,7 +7,7 @@
   "registryDependencies": [
     "tabs",
     "dropdown-menu",
-    "overflow-list"
+    "timeax/ui/overflow-list"
   ],
   "files": [
     {
