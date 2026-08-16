@@ -439,7 +439,7 @@
       ],
       "registryDependencies": [
         "tabs",
-        "/timeax/ui/dropdown-menu",
+        "timeax/ui/dropdown-menu",
         "timeax/ui/overflow-list"
       ],
       "files": [
