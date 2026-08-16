@@ -3,7 +3,7 @@ import { Form, InputField, useButton as useFormButton } from '@timeax/form-palet
 import { Button } from '@/components/ui/smart-button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Tabs } from '@/components/ui/enhanced-tabs/enhanced-tabs';
+import { Tabs } from '@/components/ui/enhanced-tabs';
 import {
     Dialog,
     DialogContent,

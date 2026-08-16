@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { PeekDots } from './peek-dots';
-import { SmartCard } from '../smart-card/smart-card';
+import { SmartCard } from '@/components/ui/smart-card';
 
 const ITEMS = [
     { title: 'Project Alpha', desc: 'Design tokens and system variables definition.' },

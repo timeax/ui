@@ -11,7 +11,7 @@
       ],
       "registryDependencies": [
         "button",
-        "dropdown-menu",
+        "timeax/ui/dropdown-menu",
         "tooltip"
       ],
       "files": [
@@ -44,7 +44,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "actions-toolbox"
+        "timeax/ui/actions-toolbox"
       ],
       "files": [
         {
@@ -163,12 +163,12 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "smart-button",
+        "timeax/ui/smart-button",
         "card",
         "input",
-        "enhanced-tabs",
+        "timeax/ui/enhanced-tabs",
         "dialog",
-        "dropdown-menu"
+        "timeax/ui/dropdown-menu"
       ],
       "files": [
         {
@@ -188,7 +188,7 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "config-form"
+        "timeax/ui/config-form"
       ],
       "files": [
         {
@@ -220,7 +220,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "custom-popover",
+        "timeax/ui/custom-popover",
         "card",
         "button",
         "input",
@@ -245,11 +245,11 @@
         "button",
         "scroll-area",
         "table",
-        "dropdown-menu",
-        "text",
-        "status-button",
-        "date-text",
-        "paginator"
+        "timeax/ui/dropdown-menu",
+        "timeax/ui/text",
+        "timeax/ui/status-button",
+        "timeax/ui/date-text",
+        "timeax/ui/paginator"
       ],
       "files": [
         {
@@ -281,10 +281,10 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "data-table",
-        "date-text",
+        "timeax/ui/data-table",
+        "timeax/ui/date-text",
         "button",
-        "smart-button"
+        "timeax/ui/smart-button"
       ],
       "files": [
         {
@@ -299,7 +299,7 @@
       "type": "registry:ui",
       "dependencies": [],
       "registryDependencies": [
-        "text"
+        "timeax/ui/text"
       ],
       "files": [
         {
@@ -319,8 +319,8 @@
       "type": "registry:ui",
       "dependencies": [],
       "registryDependencies": [
-        "text",
-        "visual"
+        "timeax/ui/text",
+        "timeax/ui/visual"
       ],
       "files": [
         {
@@ -363,7 +363,7 @@
         "@radix-ui/react-popover"
       ],
       "registryDependencies": [
-        "headless-responsive-dialog",
+        "timeax/ui/headless-responsive-dialog",
         "scroll-area",
         "alert-dialog"
       ],
@@ -462,7 +462,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "enhanced-tabs",
+        "timeax/ui/enhanced-tabs",
         "card"
       ],
       "files": [
@@ -480,7 +480,7 @@
         "@iconify/react"
       ],
       "registryDependencies": [
-        "smart-button"
+        "timeax/ui/smart-button"
       ],
       "files": [
         {
@@ -510,7 +510,7 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "feed-renderer"
+        "timeax/ui/feed-renderer"
       ],
       "files": [
         {
@@ -527,7 +527,7 @@
         "@radix-ui/react-dialog"
       ],
       "registryDependencies": [
-        "use-mobile",
+        "timeax/ui/use-mobile",
         "scroll-area"
       ],
       "files": [
@@ -539,7 +539,7 @@
       ]
     },
     {
-      "name": "hooks",
+      "name": "use-mobile",
       "type": "registry:hook",
       "dependencies": [],
       "registryDependencies": [],
@@ -573,7 +573,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "icon-card"
+        "timeax/ui/icon-card"
       ],
       "files": [
         {
@@ -614,8 +614,8 @@
       "type": "registry:ui",
       "dependencies": [],
       "registryDependencies": [
-        "feed-renderer",
-        "smart-button"
+        "timeax/ui/feed-renderer",
+        "timeax/ui/smart-button"
       ],
       "files": [
         {
@@ -650,7 +650,7 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "notification-builder"
+        "timeax/ui/notification-builder"
       ],
       "files": [
         {
@@ -666,7 +666,9 @@
       "dependencies": [
         "lucide-react"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "timeax/ui/dropdown-menu"
+      ],
       "files": [
         {
           "path": "registry/new-york/overflow-list/overflow-list.tsx",
@@ -698,8 +700,8 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "overlap-stack",
-        "visual"
+        "timeax/ui/overlap-stack",
+        "timeax/ui/visual"
       ],
       "files": [
         {
@@ -738,7 +740,7 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "paginator",
+        "timeax/ui/paginator",
         "card"
       ],
       "files": [
@@ -769,7 +771,7 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "paper"
+        "timeax/ui/paper"
       ],
       "files": [
         {
@@ -797,8 +799,8 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "peek-dots",
-        "smart-card"
+        "timeax/ui/peek-dots",
+        "timeax/ui/smart-card"
       ],
       "files": [
         {
@@ -828,7 +830,7 @@
       "type": "registry:ui",
       "dependencies": [],
       "registryDependencies": [
-        "empty"
+        "timeax/ui/empty"
       ],
       "files": [
         {
@@ -845,7 +847,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "use-mobile"
+        "timeax/ui/use-mobile"
       ],
       "files": [
         {
@@ -973,7 +975,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "smart-button"
+        "timeax/ui/smart-button"
       ],
       "files": [
         {
@@ -1005,7 +1007,7 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "smart-card",
+        "timeax/ui/smart-card",
         "card"
       ],
       "files": [
@@ -1022,7 +1024,7 @@
       "dependencies": [],
       "registryDependencies": [
         "popover",
-        "smart-button"
+        "timeax/ui/smart-button"
       ],
       "files": [
         {
@@ -1060,7 +1062,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "speed-dial"
+        "timeax/ui/speed-dial"
       ],
       "files": [
         {
@@ -1078,7 +1080,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "smart-button"
+        "timeax/ui/smart-button"
       ],
       "files": [
         {
@@ -1095,7 +1097,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "split-button"
+        "timeax/ui/split-button"
       ],
       "files": [
         {
@@ -1112,7 +1114,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "smart-button"
+        "timeax/ui/smart-button"
       ],
       "files": [
         {
@@ -1129,7 +1131,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "status-button"
+        "timeax/ui/status-button"
       ],
       "files": [
         {
@@ -1190,7 +1192,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "text"
+        "timeax/ui/text"
       ],
       "files": [
         {
@@ -1225,7 +1227,7 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "visual"
+        "timeax/ui/visual"
       ],
       "files": [
         {

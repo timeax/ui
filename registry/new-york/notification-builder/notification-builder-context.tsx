@@ -6,7 +6,7 @@ import type {
     MessageIconPayload,
     MessageLinePayload,
     MessagePayload,
-} from '../feed-renderer/feed-renderer.types';
+} from '@/components/ui/feed-renderer.types';
 import type {
     DraftActionButton,
     DraftActionCore,

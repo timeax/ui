@@ -3,8 +3,8 @@
   "type": "registry:ui",
   "dependencies": [],
   "registryDependencies": [
-    "text",
-    "visual"
+    "timeax/ui/text",
+    "timeax/ui/visual"
   ],
   "files": [
     {

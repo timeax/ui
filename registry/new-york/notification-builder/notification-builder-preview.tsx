@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { useNotificationEditor } from './notification-builder-context';
-import { MessageRenderer, FlashRenderer } from '../feed-renderer/feed-renderer';
-import type { MessagePayload, FlashPayload } from '../feed-renderer/feed-renderer.types';
+import { MessageRenderer, FlashRenderer } from '@/components/ui/feed-renderer';
+import type { MessagePayload, FlashPayload } from '@/components/ui/feed-renderer.types';
 
 export interface NotificationBuilderPreviewProps {
     className?: string;

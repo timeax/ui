@@ -5,10 +5,10 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "data-table",
-    "date-text",
+    "timeax/ui/data-table",
+    "timeax/ui/date-text",
     "button",
-    "smart-button"
+    "timeax/ui/smart-button"
   ],
   "files": [
     {

@@ -5,7 +5,7 @@
     "@iconify/react"
   ],
   "registryDependencies": [
-    "smart-button"
+    "timeax/ui/smart-button"
   ],
   "files": [
     {

@@ -3,8 +3,8 @@
   "type": "registry:block",
   "dependencies": [],
   "registryDependencies": [
-    "overlap-stack",
-    "visual"
+    "timeax/ui/overlap-stack",
+    "timeax/ui/visual"
   ],
   "files": [
     {

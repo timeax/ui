@@ -6,12 +6,12 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "smart-button",
+    "timeax/ui/smart-button",
     "card",
     "input",
-    "enhanced-tabs",
+    "timeax/ui/enhanced-tabs",
     "dialog",
-    "dropdown-menu"
+    "timeax/ui/dropdown-menu"
   ],
   "files": [
     {

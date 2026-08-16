@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Table, Column } from './data-table';
-import { DateText } from '../date-text/date-text';
+import { DateText } from '@/components/ui/date-text';
 import { Button } from '@/components/ui/button';
 import { Button as SmartButton } from '@/components/ui/smart-button';
 import { Edit2, Trash2, Search, SlidersHorizontal } from 'lucide-react';

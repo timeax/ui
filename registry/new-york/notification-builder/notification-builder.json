@@ -3,8 +3,8 @@
   "type": "registry:ui",
   "dependencies": [],
   "registryDependencies": [
-    "feed-renderer",
-    "smart-button"
+    "timeax/ui/feed-renderer",
+    "timeax/ui/smart-button"
   ],
   "files": [
     {

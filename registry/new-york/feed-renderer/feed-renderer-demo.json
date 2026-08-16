@@ -3,7 +3,7 @@
   "type": "registry:block",
   "dependencies": [],
   "registryDependencies": [
-    "feed-renderer"
+    "timeax/ui/feed-renderer"
   ],
   "files": [
     {

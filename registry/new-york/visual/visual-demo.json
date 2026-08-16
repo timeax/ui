@@ -3,7 +3,7 @@
   "type": "registry:block",
   "dependencies": [],
   "registryDependencies": [
-    "visual"
+    "timeax/ui/visual"
   ],
   "files": [
     {

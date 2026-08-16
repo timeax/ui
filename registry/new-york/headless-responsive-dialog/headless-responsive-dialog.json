@@ -5,7 +5,7 @@
     "@radix-ui/react-dialog"
   ],
   "registryDependencies": [
-    "use-mobile",
+    "timeax/ui/use-mobile",
     "scroll-area"
   ],
   "files": [

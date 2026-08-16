@@ -6,7 +6,7 @@
   ],
   "registryDependencies": [
     "button",
-    "dropdown-menu",
+    "timeax/ui/dropdown-menu",
     "tooltip"
   ],
   "files": [

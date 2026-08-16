@@ -3,8 +3,8 @@
   "type": "registry:block",
   "dependencies": [],
   "registryDependencies": [
-    "peek-dots",
-    "smart-card"
+    "timeax/ui/peek-dots",
+    "timeax/ui/smart-card"
   ],
   "files": [
     {

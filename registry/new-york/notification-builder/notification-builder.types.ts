@@ -10,7 +10,7 @@ import type {
     MessageIconPayload,
     MessageLinePayload,
     MessagePayload,
-} from '../feed-renderer/feed-renderer.types';
+} from '@/components/ui/feed-renderer.types';
 
 export type EditorMode = 'log' | 'flash' | 'push' | 'email' | 'sms';
 

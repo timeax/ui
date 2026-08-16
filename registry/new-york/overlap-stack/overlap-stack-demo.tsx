@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { OverlapStack, OverlapItem, OverlapStackOverflow } from './overlap-stack';
-import { VisualImage } from '../visual/visual-image';
+import { VisualImage } from '@/components/ui/visual-image';
 
 const DEMO_AVATARS = [
     'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=60',

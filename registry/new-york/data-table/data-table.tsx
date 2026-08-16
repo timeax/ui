@@ -18,14 +18,14 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Text } from '@/components/ui/text';
 import { StatusButton } from '@/components/ui/status-button';
-import { formatColumnDate } from '../date-text/date-text';
+import { formatColumnDate } from '@/components/ui/date-text';
 import { ArrowUpDown, Loader2, ChevronRight, Columns3 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 import type { ColumnProps, SortOrder, MatchMode, RowGap, RowRadius, TableProps, CheckboxCellArgs, DisplayVariant } from './data-table.types';
 import { useStickyOffsets } from './data-table.hooks';
 import { GAP_MAP, RADIUS_MAP, alignCls, densityCell, isFrozenLeft, isFrozenRight, matchValue } from './data-table.utils';
-import { Paginator } from '../paginator/paginator';
+import { Paginator } from '@/components/ui/paginator';
 
 export function Column<T>(_props: ColumnProps<T>) {
     return null;

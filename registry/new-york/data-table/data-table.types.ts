@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ColumnDateFormat, DateMask } from '../date-text/date-text';
+import type { ColumnDateFormat, DateMask } from '@/components/ui/date-text';
 
 export type DisplayVariant = 'spaced' | 'normal' | 'bordered' | 'minimal' | 'glass';
 export type DensityLevel = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;

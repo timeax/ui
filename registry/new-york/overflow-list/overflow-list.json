@@ -5,7 +5,7 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "dropdown-menu"
+    "timeax/ui/dropdown-menu"
   ],
   "files": [
     {

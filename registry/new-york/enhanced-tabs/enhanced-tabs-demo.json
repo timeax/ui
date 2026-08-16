@@ -5,7 +5,7 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "enhanced-tabs",
+    "timeax/ui/enhanced-tabs",
     "card"
   ],
   "files": [

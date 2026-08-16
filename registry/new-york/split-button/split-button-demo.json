@@ -5,7 +5,7 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "split-button"
+    "timeax/ui/split-button"
   ],
   "files": [
     {

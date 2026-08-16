@@ -3,6 +3,29 @@ import path from 'path';
 
 const REGISTRY_DIR = './registry/new-york';
 const ROOT_REGISTRY_PATH = './registry.json';
+const TIMEAX_REGISTRY_PREFIX = 'timeax/ui/';
+
+// These items intentionally resolve from the consumer's configured shadcn
+// registry. Every other item that exists in this registry is Timeax-owned and
+// must use the Timeax namespace so shadcn does not look it up upstream.
+const UPSTREAM_REGISTRY_ITEMS = new Set([
+    'alert-dialog',
+    'button',
+    'card',
+    'checkbox',
+    'command',
+    'dialog',
+    'input',
+    'label',
+    'popover',
+    'scroll-area',
+    'select',
+    'sheet',
+    'skeleton',
+    'table',
+    'tabs',
+    'tooltip'
+]);
 
 const NPM_DEPS_MAP = new Map([
     ['@radix-ui/react-aspect-ratio', '@radix-ui/react-aspect-ratio'],
@@ -36,17 +59,12 @@ function getImports(fileContent) {
     return imports;
 }
 
-function resolveComponentDependency(imp, folder) {
-    if (imp.startsWith('../')) {
-        const parts = imp.split('/');
-        if (parts[1] && parts[1] !== '..' && parts[1] !== '.') {
-            return parts[1];
-        }
-    }
+function resolveComponentDependency(imp, componentAliasMap) {
     if (imp.startsWith('@/components/ui/')) {
         const parts = imp.substring('@/components/ui/'.length).split('/');
-        if (parts[0]) {
-            return parts[0];
+        const alias = parts[0];
+        if (alias) {
+            return componentAliasMap.get(alias) ?? alias;
         }
     }
     if (imp.startsWith('@/hooks/')) {
@@ -56,6 +74,14 @@ function resolveComponentDependency(imp, folder) {
         }
     }
     return null;
+}
+
+function formatRegistryDependency(name, registryItems) {
+    if (!name || UPSTREAM_REGISTRY_ITEMS.has(name) || !registryItems.has(name)) {
+        return name;
+    }
+
+    return `${TIMEAX_REGISTRY_PREFIX}${name}`;
 }
 
 function cleanExistingJsonFiles(folderPath) {
@@ -71,6 +97,23 @@ function buildRegistry() {
     const folders = fs.readdirSync(REGISTRY_DIR).filter(file => {
         return fs.statSync(path.join(REGISTRY_DIR, file)).isDirectory();
     });
+    const registryItems = new Set([
+        ...folders.filter(folder => folder !== 'hooks'),
+        ...fs.readdirSync(path.join(REGISTRY_DIR, 'hooks'))
+            .filter(file => /^use-.*\.(tsx|ts)$/i.test(file))
+            .map(file => path.basename(file, path.extname(file)))
+    ]);
+    const componentAliasMap = new Map();
+
+    for (const folder of folders.filter(folder => folder !== 'hooks')) {
+        componentAliasMap.set(folder, folder);
+
+        for (const file of fs.readdirSync(path.join(REGISTRY_DIR, folder))) {
+            if (/\.(tsx|ts)$/i.test(file)) {
+                componentAliasMap.set(path.basename(file, path.extname(file)), folder);
+            }
+        }
+    }
     
     const items = [];
     
@@ -85,7 +128,7 @@ function buildRegistry() {
         const demoFiles = tsFiles.filter(file => /[-_]demo\.(tsx|ts)$/i.test(file));
         
         // 1. Build Core Component Item
-        if (coreFiles.length > 0) {
+        if (coreFiles.length > 0 && folder !== 'hooks') {
             const dependencies = new Set();
             const registryDependencies = new Set();
             
@@ -100,9 +143,9 @@ function buildRegistry() {
                             dependencies.add(npmVal);
                         }
                     }
-                    const regDep = resolveComponentDependency(imp, folder);
+                    const regDep = resolveComponentDependency(imp, componentAliasMap);
                     if (regDep && regDep !== folder) {
-                        registryDependencies.add(regDep);
+                        registryDependencies.add(formatRegistryDependency(regDep, registryItems));
                     }
                 }
             }
@@ -141,7 +184,7 @@ function buildRegistry() {
         // 2. Build Demo Block Item (if demo files exist)
         if (demoFiles.length > 0) {
             const dependencies = new Set();
-            const registryDependencies = new Set([folder]); // Depends on the core component
+            const registryDependencies = new Set([formatRegistryDependency(folder, registryItems)]); // Depends on the core component
             
             for (const file of demoFiles) {
                 const filePath = path.join(folderPath, file);
@@ -154,9 +197,9 @@ function buildRegistry() {
                             dependencies.add(npmVal);
                         }
                     }
-                    const regDep = resolveComponentDependency(imp, folder);
+                    const regDep = resolveComponentDependency(imp, componentAliasMap);
                     if (regDep && regDep !== folder) {
-                        registryDependencies.add(regDep);
+                        registryDependencies.add(formatRegistryDependency(regDep, registryItems));
                     }
                 }
             }
@@ -179,6 +222,29 @@ function buildRegistry() {
             fs.writeFileSync(demoJsonPath, JSON.stringify(demoItem, null, 2), 'utf8');
             console.log(`Created demo JSON: ${demoJsonPath}`);
             items.push(demoItem);
+        }
+
+        // Hooks are installed individually, just like shadcn's own hooks.
+        if (folder === 'hooks') {
+            for (const file of coreFiles.filter(file => /^use-.*\.(tsx|ts)$/i.test(file))) {
+                const name = path.basename(file, path.extname(file));
+                const hookItem = {
+                    name,
+                    type: 'registry:hook',
+                    dependencies: [],
+                    registryDependencies: [],
+                    files: [{
+                        path: `registry/new-york/${folder}/${file}`,
+                        type: 'registry:hook',
+                        target: `@hooks/${file}`
+                    }]
+                };
+
+                const hookJsonPath = path.join(folderPath, `${name}.json`);
+                fs.writeFileSync(hookJsonPath, JSON.stringify(hookItem, null, 2), 'utf8');
+                console.log(`Created hook JSON: ${hookJsonPath}`);
+                items.push(hookItem);
+            }
         }
     }
     

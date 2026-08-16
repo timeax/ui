@@ -9,11 +9,11 @@
     "button",
     "scroll-area",
     "table",
-    "dropdown-menu",
-    "text",
-    "status-button",
-    "date-text",
-    "paginator"
+    "timeax/ui/dropdown-menu",
+    "timeax/ui/text",
+    "timeax/ui/status-button",
+    "timeax/ui/date-text",
+    "timeax/ui/paginator"
   ],
   "files": [
     {

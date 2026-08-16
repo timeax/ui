@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Tabs as RadixTabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { OverflowList } from '../overflow-list/overflow-list';
+import { OverflowList } from '@/components/ui/overflow-list';
 import { cn } from '@/lib/utils';
 import { Check, MoreHorizontal } from 'lucide-react';
 import type { TabsProps, NormalizedTab, GuardFn, TabsGuardContextValue } from './enhanced-tabs.types';

@@ -4,7 +4,7 @@
   "dependencies": [],
   "registryDependencies": [
     "popover",
-    "smart-button"
+    "timeax/ui/smart-button"
   ],
   "files": [
     {

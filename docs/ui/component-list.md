@@ -2,6 +2,8 @@
 
 This document contains the revised catalog and classification of components from the Digital Growth Platform (`digital-growth-platform`) project, updated to reflect the scoped active list of migration candidates. Excluded modules have been removed from active migration considerations.
 
+Registry manifests reference Timeax-owned dependencies with the `timeax/ui/` prefix. Bare dependency names are reserved for upstream shadcn primitives.
+
 ---
 
 ## Part 1: Primary Active Migration Families

@@ -5,7 +5,7 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "actions-toolbox"
+    "timeax/ui/actions-toolbox"
   ],
   "files": [
     {
