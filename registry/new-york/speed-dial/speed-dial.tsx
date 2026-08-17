@@ -81,6 +81,7 @@ const Dial: React.FC<DialProps> = ({
 export interface SpeedDialProps {
     open?: boolean;
     defaultOpen?: boolean;
+
     onOpenChange?(open: boolean): void;
 
     trigger?: React.ReactNode;
@@ -97,7 +98,7 @@ export interface SpeedDialProps {
 
     size?: 'sm' | 'md' | 'lg';
     className?: string;
-    
+
     // Fanout configurations
     layout?: SpeedDialLayout;
     direction?: SpeedDialDirection;
@@ -113,7 +114,9 @@ export interface SpeedDialProps {
 export interface SpeedDialActionProps {
     icon: React.ReactNode;
     label?: React.ReactNode;
+
     onClick?(): void;
+
     href?: string;
     disabled?: boolean;
     tooltip?: string;
@@ -204,12 +207,12 @@ export const SpeedDial: React.FC<SpeedDialProps> & { Action: React.FC<SpeedDialA
     }, [escToClose, isOpen]);
 
     const Host: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-        const style = placementStyle(placement, offset);
+        const style = portal ? placementStyle(placement, offset) : {};
         const content = (
             <div
                 ref={rootRef}
                 style={{ ...style, zIndex }}
-                className={cn('fixed flex items-center justify-center', className)}
+                className={cn('flex items-center justify-center', portal && 'fixed', className)}
                 onMouseEnter={() => openOnHover && setOpen(true)}
                 onMouseLeave={() => openOnHover && setOpen(false)}
             >
@@ -245,9 +248,9 @@ export const SpeedDial: React.FC<SpeedDialProps> & { Action: React.FC<SpeedDialA
                         aria-label="Toggle Speed Dial"
                         aria-expanded={isOpen}
                         onClick={() => setOpen(!isOpen)}
-                        className={cn(
+                        className={cn(!trigger &&
                             'text-primary-foreground rounded-full bg-primary shadow-lg grid place-items-center hover:shadow-xl focus:ring-2 focus:ring-primary/40 focus:outline-hidden hover:cursor-pointer z-10 transition-shadow',
-                            sizeMap[size]
+                            !trigger && sizeMap[size]
                         )}
                         initial={false}
                         animate={{ rotate: isOpen ? 45 : 0 }}
@@ -303,7 +306,7 @@ export const SpeedDialAction: React.FC<SpeedDialActionProps> = ({
         if (!actionRef.current) return;
         const rect = actionRef.current.getBoundingClientRect();
         const vw = typeof window !== 'undefined' ? window.innerWidth || document.documentElement.clientWidth : 1024;
-        const vh = typeof window !== 'undefined' ? window.innerHeight || document.documentElement.clientHeight : 768;
+        // const vh = typeof window !== 'undefined' ? window.innerHeight || document.documentElement.clientHeight : 768;
 
         const spaceLeft = rect.left;
         const spaceRight = vw - rect.right;
