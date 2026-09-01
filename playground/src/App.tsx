@@ -44,6 +44,7 @@ import RevealDemo from './components/demos/reveal-demo';
 import FeedRendererDemo from './components/demos/feed-renderer-demo';
 import NotificationBuilderDemo from './components/demos/notification-builder-demo';
 import ActionsToolboxDemo from './components/demos/actions-toolbox-demo';
+import SectionBackgroundDemo from './components/demos/section-background-demo';
 // import ConfigFormDemo from './components/demos/config-form-demo';
 import { SidebarHost } from './components/ui/sidebar-manager/sidebar-host';
 
@@ -75,7 +76,8 @@ type ComponentId =
   | 'reveal'
   | 'feed-renderer'
   | 'notification-builder'
-  | 'actions-toolbox';
+  | 'actions-toolbox'
+  | 'section-background';
   // | 'config-form';
 
 
@@ -286,6 +288,13 @@ const COMPONENTS: RegistryComponent[] = [
     category: 'Buttons & Actions',
     icon: LayoutGrid,
     demo: ActionsToolboxDemo,
+  },
+  {
+    id: 'section-background',
+    name: 'Section Background',
+    category: 'Surfaces & Cards',
+    icon: Layers,
+    demo: SectionBackgroundDemo,
   },
   // {
   //   id: 'config-form',

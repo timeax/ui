@@ -6,6 +6,14 @@ Registry manifests reference Timeax-owned dependencies with the `timeax/ui/` pre
 
 ---
 
+### Section Background (`section-background`)
+* **Status:** Implemented
+* **Description:** A section background composer. Its default `splits` mode creates full-section color or media panels; `path` mode makes the dividers themselves decorative geometry.
+* **API:** `regions` accepts relative `size`, an optional `fill` (color, gradient, image, SVG, or node), and optional boundary geometry. `split` applies one direction and angle across a composition. Additive `layers` place fills, images, SVGs, or nodes using percentage frames, optionally clipped to a background region.
+* **Compatibility:** Existing `color`, `direction`, and `edge` region input remains supported.
+* **Migration Decision:** **Promote**. The component keeps background composition, SVG geometry, and positioned overlays as separate concerns.
+
+
 ## Part 1: Primary Active Migration Families
 
 ### 1. Actions and Bulk Toolbar (`actions` & `bulk-toolbar`)

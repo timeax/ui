@@ -1,0 +1,15 @@
+{
+  "name": "section-background-demo",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "timeax/ui/section-background"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/section-background/section-background-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/section-background-demo.tsx"
+    }
+  ]
+}
