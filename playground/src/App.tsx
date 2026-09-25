@@ -14,8 +14,10 @@ import {
   Image,
   Users,
   GalleryHorizontal,
-  Table2
+  Table2,
+  Tag
 } from 'lucide-react';
+import PillDemo from './components/demos/pill-demo';
 import SmartButtonDemo from './components/demos/smart-button-demo';
 import TextDemo from './components/demos/text-demo';
 import SplitButtonDemo from './components/demos/split-button-demo';
@@ -50,6 +52,7 @@ import { SidebarHost } from './components/ui/sidebar-manager/sidebar-host';
 
 type ComponentId =
   | 'smart-button'
+  | 'pill'
   | 'text'
   | 'split-button'
   | 'status-button'
@@ -97,6 +100,13 @@ const COMPONENTS: RegistryComponent[] = [
     category: 'Buttons & Actions',
     icon: PlaySquare,
     demo: SmartButtonDemo,
+  },
+  {
+    id: 'pill',
+    name: 'Pill',
+    category: 'Buttons & Actions',
+    icon: Tag,
+    demo: PillDemo,
   },
   {
     id: 'split-button',

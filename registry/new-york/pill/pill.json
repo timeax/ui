@@ -1,0 +1,15 @@
+{
+  "name": "pill",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/pill/pill.tsx",
+      "type": "registry:component",
+      "target": "@ui/pill.tsx"
+    }
+  ]
+}

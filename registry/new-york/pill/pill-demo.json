@@ -1,0 +1,17 @@
+{
+  "name": "pill-demo",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "timeax/ui/pill"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/pill/pill-demo.tsx",
+      "type": "registry:block",
+      "target": "@ui/pill-demo.tsx"
+    }
+  ]
+}

@@ -43,10 +43,11 @@ Registry manifests reference Timeax-owned dependencies with the `timeax/ui/` pre
   * Re-evaluate `split-button.tsx` and `status-button.tsx` to extend `smart-button` behaviors directly.
   * **Tool button (#139)** is **Dropped**; its icon placement, disabled rules, and emphasis logic are absorbed into `smart-button`.
   * Decouple the loader from `react-icons/ai` and replace with a standard SVG spinner. Match tone styles to v4 Tailwind variables.
-* **Current Implementation Summary:** Consolidated into three separate registry modules in the `registry/new-york/` directory:
+* **Current Implementation Summary:** Implemented across four registry modules in the `registry/new-york/` directory:
   * [smart-button](file:///d:/Projects/GitHub/ui/registry/new-york/smart-button/smart-button.tsx): A fully polymorphic component (`as` prop rendering) supporting 10 tone/color variations (primary, success, info, warning, danger, theme, white, grey, secondary, neutral), 5 emphasis levels (solid, soft, outline, ghost, link), standard/square sizes (`sm` through `3xl`), customizable rounding (`md`, `full`, `none`, or custom pixels), custom icon gap/size settings, and stateful loading overlays with standard SVG spin animations (`Loader2` from `lucide-react`).
   * [split-button](file:///d:/Projects/GitHub/ui/registry/new-york/split-button/split-button.tsx): Combines two `Button` components side-by-side (primary action and a caret trigger) coupled with Radix UI's Dropdown Menu primitive to render secondary actions.
   * [status-button](file:///d:/Projects/GitHub/ui/registry/new-york/status-button/status-button.tsx): Maps a status text string (e.g. "completed", "pending", "failed") to corresponding styling tones and icons with optional spinning animations.
+  * [pill](file:///d:/Projects/GitHub/ui/registry/new-york/pill/pill.tsx): A compact, versatile status badge and interactive chip primitive extracted from `#134 pill.tsx`. Features polymorphic rendering (`as="span"` by default, or `button`/`a`), 10 semantic tones, 4 visual variants (`solid`, `soft`, `outline`, `ghost`), 3 corner shapes (`rounded`, `pill`, `square`), 3 sizes (`sm`, `md`, `lg`), and leading/trailing icon support with customizable sizes.
 
 ---
 

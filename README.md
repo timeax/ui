@@ -10,6 +10,7 @@ A curated library of **production-grade, shadcn-compatible React components** ex
 2. [Components](#components)
    - [Button Family](#1-button-family)
      - [Button (SmartButton)](#button-smartbutton)
+     - [Pill](#pill)
      - [SplitButton](#splitbutton)
      - [StatusButton](#statusbutton)
      - [SpeedDial](#speeddial)
@@ -141,6 +142,52 @@ import { Save, Trash2, MoreHorizontal } from 'lucide-react';
 
 // Render as anchor
 <Button as="a" href="/docs" tone="primary" emphasis="link">Read the docs</Button>
+```
+
+---
+
+#### Pill
+
+A compact, versatile badge, tag, and interactive pill component supporting polymorphic rendering (`as="span"` or `as="button"`), 10 semantic tones, 4 visual variants (`solid`, `soft`, `outline`, `ghost`), 3 shapes (`rounded`, `pill`, `square`), 3 sizes (`sm`, `md`, `lg`), and leading/trailing icons.
+
+**Install:**
+```bash
+npx shadcn@latest add timeax/ui/pill
+```
+
+**Dependencies:** `class-variance-authority`
+
+**Props:**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `as` | `ElementType` | `'span'` | Element or component to render as (e.g. `'span'`, `'button'`, `'a'`) |
+| `tone` | `'primary' \| 'success' \| 'info' \| 'warning' \| 'danger' \| 'theme' \| 'white' \| 'grey' \| 'secondary' \| 'neutral'` | `'white'` | Color tone matching the design tokens |
+| `variant` | `'solid' \| 'soft' \| 'outline' \| 'ghost'` | `'soft'` | Visual style variant |
+| `shape` | `'rounded' \| 'pill' \| 'square'` | `'rounded'` | Corner radius style (`rounded-xl`, `rounded-full`, or `rounded-md`) |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Sizing preset for font, padding, and spacing |
+| `icon` | `ReactNode` | — | Leading or trailing icon |
+| `iconPosition` | `'left' \| 'right'` | `'left'` | Placement of the icon relative to children |
+| `iconSize` | `number \| 'sm' \| 'md' \| 'lg'` | — | Explicit icon size in pixels or keyword |
+| `contentClassName` | `string` | — | Custom class for the inner label wrapper |
+| `className` | `string` | — | Additional CSS classes |
+
+**Usage:**
+
+```tsx
+import { Pill } from '@/components/ui/pill';
+import { CheckCircle2, Clock } from 'lucide-react';
+
+// Status badge
+<Pill tone="success" icon={<CheckCircle2 />}>Active</Pill>
+
+// Small warning tag
+<Pill tone="warning" size="sm" shape="pill" icon={<Clock />}>Pending Review</Pill>
+
+// Clickable interactive button pill
+<Pill as="button" tone="primary" variant="solid" onClick={() => handleClick()}>
+  Take action
+</Pill>
 ```
 
 ---
