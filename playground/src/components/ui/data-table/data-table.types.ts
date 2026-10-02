@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { ColumnDateFormat, DateMask } from '../date-text/date-text';
 
-export type DisplayVariant = 'spaced' | 'normal' | 'bordered' | 'minimal' | 'glass';
+export type DisplayVariant = 'default' | 'spaced' | 'normal' | 'bordered' | 'minimal' | 'glass';
 export type DensityLevel = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;
 export type Density = 'comfortable' | 'compact' | DensityLevel;
 export type SelectionMode = 'none' | 'single' | 'multiple';
@@ -83,6 +83,7 @@ export interface TableProps<T> {
     value: T[];
     children: React.ReactNode;
     display?: DisplayVariant;
+    variant?: DisplayVariant;
     rowGap?: RowGap;
     rowRadius?: RowRadius;
     density?: Density;

@@ -28,7 +28,7 @@ export function DataTableDemo() {
     const [selection, setSelection] = React.useState<any[]>([]);
     const [globalFilter, setGlobalFilter] = React.useState('');
     const [density, setDensity] = React.useState<'comfortable' | 'compact'>('compact');
-    const [variant, setVariant] = React.useState<'spaced' | 'normal' | 'bordered' | 'minimal' | 'glass'>('spaced');
+    const [variant, setVariant] = React.useState<'default' | 'spaced' | 'normal' | 'bordered' | 'minimal' | 'glass'>('default');
     const [loading, setLoading] = React.useState(false);
     const [stickyHeader, setStickyHeader] = React.useState(true);
 
@@ -109,7 +109,7 @@ export function DataTableDemo() {
                         <SlidersHorizontal className="h-3 w-3" /> Layout:
                     </span>
                     <div className="flex border rounded-md overflow-hidden bg-background">
-                        {(['spaced', 'normal', 'bordered', 'minimal', 'glass'] as const).map((v) => (
+                        {(['default', 'spaced', 'normal', 'bordered', 'minimal', 'glass'] as const).map((v) => (
                             <button
                                 key={v}
                                 onClick={() => setVariant(v)}

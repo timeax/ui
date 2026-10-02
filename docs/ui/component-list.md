@@ -142,7 +142,7 @@ Registry manifests reference Timeax-owned dependencies with the `timeax/ui/` pre
   * [table](file:///d:/Projects/GitHub/ui/registry/new-york/table/table.tsx): Standard semantic HTML grid elements matching shadcn.
   * [scroll-area](file:///d:/Projects/GitHub/ui/registry/new-york/scroll-area/scroll-area.tsx): Radix-based ScrollArea wrapper managing vertical and horizontal scrollbars.
   * [date-text](file:///d:/Projects/GitHub/ui/registry/new-york/date-text/date-text.tsx): Standalone date text formatting component with built-in presets (e.g. `dateMedium`, `isoDateTime`) based on `Intl.DateTimeFormat`.
-  * [data-table](file:///d:/Projects/GitHub/ui/registry/new-york/data-table/data-table.tsx): High-level table component wrapping sorting, paging, select-checklists, global search queries, column visibility dropdowns, and sticky headers (`stickyHeader` and `viewportHeight` settings).
+  * [data-table](file:///d:/Projects/GitHub/ui/registry/new-york/data-table/data-table.tsx): High-level table component wrapping sorting, paging, select-checklists, global search queries, column visibility dropdowns, and sticky headers (`stickyHeader` and `viewportHeight` settings). Supports display variants (`default`, `spaced`, `normal`, `bordered`, `minimal`, `glass`), with `default` as the default variant providing a clean, borderless table container with no background (fully transparent) and subtle bottom-bordered rows matching shadcn's default table styles.
 
 ---
 

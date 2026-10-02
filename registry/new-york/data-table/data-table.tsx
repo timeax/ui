@@ -228,7 +228,15 @@ export const BodyRow = React.memo(
                         ? rightOffsets[ci]
                         : undefined;
             const stickyCls = stickySide
-                ? cn('sticky bg-card/95', stickySide === 'left' ? 'left-0' : 'right-0')
+                ? cn(
+                    'sticky',
+                    display === 'default'
+                        ? 'bg-transparent'
+                        : display === 'minimal'
+                            ? 'bg-background/95 backdrop-blur-xs'
+                            : 'bg-card/95',
+                    stickySide === 'left' ? 'left-0' : 'right-0'
+                  )
                 : undefined;
 
             const cellBorderCls =
@@ -313,7 +321,10 @@ export const BodyRow = React.memo(
                         style={{ width: 48, zIndex: frozenZIndex, left: 0 }}
                         className={cn(
                             densityCls,
-                            'sticky left-0 bg-card/95 text-center',
+                            'text-center',
+                            display === 'default'
+                                ? 'bg-transparent'
+                                : cn('sticky left-0', display === 'minimal' ? 'bg-background/95 backdrop-blur-xs' : 'bg-card/95'),
                             display === 'bordered' && 'border-r border-b border-border/80 dark:border-border/40'
                         )}
                         onClick={(e) => e.stopPropagation()}
@@ -330,7 +341,10 @@ export const BodyRow = React.memo(
                         }}
                         className={cn(
                             densityCls,
-                            'sticky bg-card/95 text-center',
+                            'text-center',
+                            display === 'default'
+                                ? 'bg-transparent'
+                                : cn('sticky', display === 'minimal' ? 'bg-background/95 backdrop-blur-xs' : 'bg-card/95'),
                             display === 'bordered' && 'border-r border-b border-border/80 dark:border-border/40'
                         )}
                         onClick={(e) => e.stopPropagation()}
@@ -388,7 +402,8 @@ export function Table<T>(props: TableProps<T>) {
     const {
         value,
         children,
-        display = 'spaced',
+        display: displayProp,
+        variant: variantProp,
         rowGap,
         rowRadius,
         density = 'compact',
@@ -442,6 +457,8 @@ export function Table<T>(props: TableProps<T>) {
         virtualScroll = false,
         rowHeight,
     } = props;
+
+    const display: DisplayVariant = variantProp ?? displayProp ?? 'default';
 
     const [scrollTop, setScrollTop] = React.useState(0);
     const [viewportHeightState, setViewportHeightState] = React.useState(300);
@@ -875,13 +892,24 @@ export function Table<T>(props: TableProps<T>) {
         if (display === 'minimal') {
             return 'hover:bg-muted/30 border-none';
         }
-        // default/normal
-        return 'border-b border-border hover:bg-muted/40';
+        if (display === 'normal') {
+            return 'bg-card border-b border-border hover:bg-muted/40';
+        }
+        // default: simple variant with no table border, no background, and border-bottom on rows like shadcn's default table
+        return 'border-b border-border bg-transparent transition-colors data-[state=selected]:bg-muted';
     }, [display, gapCls, radiusToken]);
 
-    const hoverCls = rowHover ? 'hover:shadow-md hover:bg-accent/5 transition-all duration-200' : '';
+    const hoverCls = rowHover
+        ? display === 'spaced'
+            ? 'hover:shadow-md hover:bg-accent/5 transition-all duration-200'
+            : 'hover:bg-muted/50 transition-colors'
+        : '';
     const densityCls = densityCell(density);
-    const tableCls = display === 'spaced' ? gapCls : 'border-separate border-spacing-y-0';
+    const tableCls = display === 'spaced'
+        ? gapCls
+        : display === 'default'
+            ? ''
+            : 'border-separate border-spacing-y-0';
 
     const renderHeaderCell = (c: ColumnProps<T>, idx: number) => {
         const field = (c.sortField ?? c.field) as string | undefined;
@@ -889,25 +917,28 @@ export function Table<T>(props: TableProps<T>) {
         const isHighlightedColumn = highlightColumnSet.has(columnIdentity);
         const sortable = Boolean(c.sortable && !c.sortableDisabled && field);
         const active = innerSort.field === field && innerSort.order !== 0;
-        const isHeaderSticky = stickyHeader;
+        const isHeaderSticky = display !== 'default' && stickyHeader;
         const stickySide = isFrozenLeft(c) ? 'left' : isFrozenRight(c) ? 'right' : undefined;
         const stickyOffset = stickySide === 'left' ? leftOffsets[idx] : stickySide === 'right' ? rightOffsets[idx] : undefined;
         const stickyCls = (stickySide || isHeaderSticky)
             ? cn(
                 'sticky',
+                display === 'default'
+                    ? 'bg-transparent'
+                    : (display === 'minimal' ? 'bg-background/95 backdrop-blur-xs' : 'bg-background'),
                 stickySide === 'left' && 'left-0',
                 stickySide === 'right' && 'right-0',
                 isHeaderSticky && 'top-0'
               )
             : undefined;
 
-        let bgCls = 'bg-background';
+        let bgCls = 'bg-transparent';
         if (display === 'bordered') {
             bgCls = isHeaderSticky ? 'bg-muted/95 backdrop-blur-xs' : 'bg-muted/60';
         } else if (display === 'glass') {
             bgCls = 'bg-background/60 backdrop-blur-xs';
-        } else if (display === 'minimal') {
-            bgCls = isHeaderSticky ? 'bg-background/95 backdrop-blur-xs' : 'bg-transparent';
+        } else if (display === 'minimal' || display === 'default') {
+            bgCls = 'bg-transparent';
         } else if (isHeaderSticky) {
             bgCls = 'bg-background/95 backdrop-blur-xs';
         }
@@ -937,8 +968,8 @@ export function Table<T>(props: TableProps<T>) {
                     bgCls,
                     isHighlightedColumn && 'bg-primary/10 text-primary',
                     headerBorderCls,
-                    frozenShadow && stickySide === 'left' && 'shadow-[inset_-10px_0_10px_-10px_rgba(0,0,0,0.05)]',
-                    frozenShadow && stickySide === 'right' && 'shadow-[inset_10px_0_10px_-10px_rgba(0,0,0,0.05)]',
+                    frozenShadow && stickySide === 'left' && display !== 'default' && 'shadow-[inset_-10px_0_10px_-10px_rgba(0,0,0,0.05)]',
+                    frozenShadow && stickySide === 'right' && display !== 'default' && 'shadow-[inset_10px_0_10px_-10px_rgba(0,0,0,0.05)]',
                 )}
                 onClick={() => onHeaderSort(field, sortable, c.sortableDisabled)}
             >
@@ -994,9 +1025,9 @@ export function Table<T>(props: TableProps<T>) {
 
             <div className={cn(
                 "relative w-full overflow-hidden transition-all duration-300",
-                display !== 'spaced' && "border rounded-md bg-card",
-                display === 'glass' && "bg-card/30 backdrop-blur-md border-border/30 shadow-xs",
-                display === 'minimal' && "border-none bg-transparent"
+                (display === 'normal' || display === 'bordered') && "border rounded-md bg-card",
+                display === 'glass' && "border rounded-md bg-card/30 backdrop-blur-md border-border/30 shadow-xs",
+                (display === 'minimal' || display === 'default' || display === 'spaced') && "border-none bg-transparent"
             )}>
                 {loading && (
                     <div className="absolute inset-0 z-[100] flex items-center justify-center bg-background/50 backdrop-blur-[1px]">
@@ -1019,13 +1050,15 @@ export function Table<T>(props: TableProps<T>) {
                     <UiTable className={tableCls}>
                         <TableHeader
                             className={cn(
-                                stickyHeader && 'sticky top-0 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80 shadow-xs'
+                                display !== 'default' && stickyHeader && 'sticky top-0 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80 shadow-xs',
+                                display === 'default' && 'bg-transparent'
                             )}
-                            style={stickyHeader ? { top: stickyHeaderOffset } : undefined}
+                            style={display !== 'default' && stickyHeader ? { top: stickyHeaderOffset } : undefined}
                         >
                             <TableRow
                                 className={cn(
-                                    'border-b shadow-sm hover:bg-transparent',
+                                    'border-b bg-transparent hover:bg-transparent',
+                                    display !== 'default' && 'shadow-sm',
                                     display === 'spaced' && [
                                         RADIUS_MAP[radiusToken].left,
                                         RADIUS_MAP[radiusToken].right,
@@ -1038,13 +1071,14 @@ export function Table<T>(props: TableProps<T>) {
                                         style={{
                                             width: 48,
                                             left: 0,
-                                            zIndex: stickyHeader ? 60 : frozenHeaderZIndex
+                                            zIndex: display !== 'default' && stickyHeader ? 60 : frozenHeaderZIndex
                                         }}
                                         className={cn(
-                                            'sticky left-0 bg-background/95 backdrop-blur-xs text-center',
-                                            stickyHeader && 'top-0',
+                                            'text-center bg-transparent',
+                                            display !== 'default' && 'sticky left-0 bg-background/95 backdrop-blur-xs',
+                                            display !== 'default' && stickyHeader && 'top-0',
                                             display === 'bordered' && 'border-r border-b border-border/80 dark:border-border/40',
-                                            frozenShadow && 'shadow-[inset_-10px_0_10px_-10px_rgba(0,0,0,0.05)]'
+                                            display !== 'default' && frozenShadow && 'shadow-[inset_-10px_0_10px_-10px_rgba(0,0,0,0.05)]'
                                         )}
                                     >
                                         {renderCheckboxHeader()}
@@ -1056,13 +1090,14 @@ export function Table<T>(props: TableProps<T>) {
                                         style={{
                                             width: 40,
                                             left: hasCheckboxCol ? 48 : 0,
-                                            zIndex: stickyHeader ? 60 : frozenHeaderZIndex
+                                            zIndex: display !== 'default' && stickyHeader ? 60 : frozenHeaderZIndex
                                         }}
                                         className={cn(
-                                            'sticky bg-background/95 backdrop-blur-xs text-center',
-                                            stickyHeader && 'top-0',
+                                            'text-center bg-transparent',
+                                            display !== 'default' && 'sticky bg-background/95 backdrop-blur-xs',
+                                            display !== 'default' && stickyHeader && 'top-0',
                                             display === 'bordered' && 'border-r border-b border-border/80 dark:border-border/40',
-                                            frozenShadow && 'shadow-[inset_-10px_0_10px_-10px_rgba(0,0,0,0.05)]'
+                                            display !== 'default' && frozenShadow && 'shadow-[inset_-10px_0_10px_-10px_rgba(0,0,0,0.05)]'
                                         )}
                                     >
                                     </TableHead>
