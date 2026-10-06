@@ -46,7 +46,16 @@ import type {
     SettingsProfile,
     ProfileCreateOption,
     ConfigValidationResult,
+    ConfigFormSubmitButtonProps,
+    ConfigFormHandle,
+    ConfigFormProps,
 } from './config-form.types';
+
+export type {
+    ConfigFormSubmitButtonProps,
+    ConfigFormHandle,
+    ConfigFormProps,
+};
 
 // ==========================================
 // Requirement Rules Evaluation Logic
@@ -900,42 +909,38 @@ export const ConfigFormHeader: React.FC<ConfigFormHeaderProps> = ({
 // Core Config Form Component
 // ==========================================
 
-export interface ConfigFormProps {
-    schema: UiConfigSchemaPayload;
-    initialValues?: Record<string, any>;
-    onSave?: (values: Record<string, any>, profile: string) => Promise<void> | void;
-    profiles?: SettingsProfile[];
-    activeProfile?: string;
-    onProfileChange?: (profile: string) => void;
-    onProfileCreate?: (profile: string) => Promise<void> | void;
-    onProfileMakeDefault?: (profile: string) => Promise<void> | void;
-    canCreateProfiles?: boolean;
-    createMode?: 'freeform' | 'handler';
-    createOptions?: ProfileCreateOption[];
-    validationResult?: ConfigValidationResult;
-    title: string;
-    description?: string;
-    submitLabel?: string;
-    method?: string;
-}
-
-export const ConfigForm: React.FC<ConfigFormProps> = ({
-    schema: rawSchema,
-    initialValues: rawInitialValues = {},
-    onSave,
-    profiles = [],
-    activeProfile = 'default',
-    onProfileChange,
-    onProfileCreate,
-    onProfileMakeDefault,
-    canCreateProfiles = false,
-    createMode = 'freeform',
-    createOptions = [],
-    validationResult,
-    title,
-    description,
-    submitLabel = 'Apply Changes',
-}) => {
+export const ConfigForm = React.forwardRef<ConfigFormHandle, ConfigFormProps>(function ConfigForm(
+    {
+        schema: rawSchema,
+        initialValues: rawInitialValues = {},
+        onSave,
+        profiles = [],
+        activeProfile = 'default',
+        onProfileChange,
+        onProfileCreate,
+        onProfileMakeDefault,
+        canCreateProfiles = false,
+        createMode = 'freeform',
+        createOptions = [],
+        validationResult,
+        title,
+        description,
+        submitLabel = 'Apply Changes',
+        method: _method,
+        loading: controlledLoading,
+        disabled: controlledDisabled,
+        setLoading,
+        setDisabled,
+        onSubmittingChange,
+        onDisabledChange,
+        showSubmitButton = true,
+        hideSubmitButton = false,
+        submitButton,
+        submitRef,
+        formId = 'config-form',
+    },
+    ref
+) {
     // Normalise schema settings
     const schema = React.useMemo(() => {
         const settings = normalizeNodeRecord(rawSchema.settings);
@@ -962,6 +967,13 @@ export const ConfigForm: React.FC<ConfigFormProps> = ({
     const [activeParentTabId, setActiveParentTabId] = React.useState<string | null>(null);
     const [activeTabId, setActiveTabId] = React.useState<string | null>(null);
     const [isSaving, setIsSaving] = React.useState(false);
+    const isSubmitting = controlledLoading !== undefined ? controlledLoading : isSaving;
+    const isSubmitDisabled = controlledDisabled !== undefined ? controlledDisabled : false;
+
+    React.useEffect(() => {
+        setDisabled?.(isSubmitDisabled);
+        onDisabledChange?.(isSubmitDisabled);
+    }, [isSubmitDisabled, setDisabled, onDisabledChange]);
 
     // Sync state when props change
     React.useEffect(() => {
@@ -1095,12 +1107,21 @@ export const ConfigForm: React.FC<ConfigFormProps> = ({
 
                 if (renderedChildren.length === 0) return null;
 
+                const hasChildGroups = Object.values(node.children).some(isInputGroup);
+
                 return (
-                    <fieldset key={key} className="rounded-xl border border-border p-5 space-y-4">
+                    <fieldset key={key} className="self-start rounded-xl border border-border p-5 space-y-4">
                         <legend className="px-2 text-sm font-semibold tracking-tight text-foreground/90">
                             {node.label}
                         </legend>
-                        <div className="grid gap-4 sm:grid-cols-2">{renderedChildren}</div>
+                        <div
+                            className={cn(
+                                'grid gap-4 sm:grid-cols-2',
+                                hasChildGroups ? 'items-start' : 'items-end'
+                            )}
+                        >
+                            {renderedChildren}
+                        </div>
                     </fieldset>
                 );
             }
@@ -1144,7 +1165,7 @@ export const ConfigForm: React.FC<ConfigFormProps> = ({
             }
             return null;
         },
-        [activeTabRules, activeTabSet, query, visibilityContext, valueByField, validationResult]
+        [activeTabRules, activeTabSet, allOptionIncludes, query, visibilityContext, valueByField, validationResult]
     );
 
     const visibleEntries = React.useMemo(() => {
@@ -1155,15 +1176,41 @@ export const ConfigForm: React.FC<ConfigFormProps> = ({
 
     const hasVisibleEntries = visibleEntries.length > 0;
 
-    async function handleSubmit() {
+    const handleSubmit = React.useCallback(async () => {
         if (!onSave) return;
         setIsSaving(true);
+        setLoading?.(true);
+        onSubmittingChange?.(true);
         try {
             await onSave(valueByField, activeProfile);
         } finally {
             setIsSaving(false);
+            setLoading?.(false);
+            onSubmittingChange?.(false);
         }
-    }
+    }, [onSave, valueByField, activeProfile, setLoading, onSubmittingChange]);
+
+    const handle: ConfigFormHandle = React.useMemo(
+        () => ({
+            submit: handleSubmit,
+            isSaving: isSubmitting,
+            values: valueByField,
+            activeProfile,
+        }),
+        [handleSubmit, isSubmitting, valueByField, activeProfile]
+    );
+
+    React.useImperativeHandle(ref, () => handle, [handle]);
+
+    React.useEffect(() => {
+        if (submitRef) {
+            if (typeof submitRef === 'function') {
+                submitRef(handle);
+            } else {
+                (submitRef as React.MutableRefObject<ConfigFormHandle | null>).current = handle;
+            }
+        }
+    }, [submitRef, handle]);
 
     return (
         <div className="flex flex-col gap-6">
@@ -1193,6 +1240,7 @@ export const ConfigForm: React.FC<ConfigFormProps> = ({
                         wrapped
                         gap="1.5rem"
                         onSubmit={handleSubmit}
+                        formProps={{ id: formId }}
                     >
                         {visibleParentTabs.length > 0 && (
                             <div className="flex flex-col gap-3 pb-3 border-b border-border/60">
@@ -1230,11 +1278,24 @@ export const ConfigForm: React.FC<ConfigFormProps> = ({
                             )}
                         </div>
 
-                        {hasVisibleEntries && (
+                        {hasVisibleEntries && !hideSubmitButton && showSubmitButton && (
                             <div className="flex justify-end pt-2 border-t border-border/60">
-                                <SubmitButton loading={isSaving}>
-                                    {submitLabel}
-                                </SubmitButton>
+                                {typeof submitButton === 'function' ? (
+                                    submitButton({
+                                        loading: isSubmitting,
+                                        disabled: isSubmitDisabled,
+                                        submit: handleSubmit,
+                                        label: submitLabel,
+                                        setLoading,
+                                        setDisabled,
+                                    })
+                                ) : submitButton ? (
+                                    submitButton
+                                ) : (
+                                    <SubmitButton loading={isSubmitting} disabled={isSubmitDisabled}>
+                                        {submitLabel}
+                                    </SubmitButton>
+                                )}
                             </div>
                         )}
                     </Form>
@@ -1246,4 +1307,6 @@ export const ConfigForm: React.FC<ConfigFormProps> = ({
             )}
         </div>
     );
-};
+});
+
+ConfigForm.displayName = 'ConfigForm';

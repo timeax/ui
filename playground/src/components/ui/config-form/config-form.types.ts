@@ -1,3 +1,5 @@
+import type * as React from 'react';
+
 export type ConfigFieldType =
     | 'text'
     | 'toggle'
@@ -140,4 +142,52 @@ export interface ConfigValidationErrorDetail {
 export interface ConfigValidationResult {
     ok: boolean;
     errors?: Record<string, ConfigValidationErrorDetail[]>;
+}
+
+export interface ConfigFormSubmitButtonProps {
+    loading: boolean;
+    disabled: boolean;
+    submit: () => void | Promise<void>;
+    label: string;
+    setLoading?: (loading: boolean) => void;
+    setDisabled?: (disabled: boolean) => void;
+}
+
+export interface ConfigFormHandle {
+    submit: () => Promise<void>;
+    isSaving: boolean;
+    values: Record<string, any>;
+    activeProfile: string;
+}
+
+export interface ConfigFormProps {
+    schema: UiConfigSchemaPayload;
+    initialValues?: Record<string, any>;
+    onSave?: (values: Record<string, any>, activeProfile: string) => Promise<void> | void;
+    profiles?: SettingsProfile[];
+    activeProfile?: string;
+    onProfileChange?: (profile: string) => void;
+    onProfileCreate?: (profile: string) => Promise<void> | void;
+    onProfileMakeDefault?: (profile: string) => Promise<void> | void;
+    canCreateProfiles?: boolean;
+    createMode?: 'freeform' | 'handler';
+    createOptions?: ProfileCreateOption[];
+    validationResult?: ConfigValidationResult;
+    title: string;
+    description?: string;
+    submitLabel?: string;
+    method?: string;
+
+    // Submit button customization and state controls:
+    loading?: boolean;
+    disabled?: boolean;
+    setLoading?: (loading: boolean) => void;
+    setDisabled?: (disabled: boolean) => void;
+    onSubmittingChange?: (submitting: boolean) => void;
+    onDisabledChange?: (disabled: boolean) => void;
+    showSubmitButton?: boolean;
+    hideSubmitButton?: boolean;
+    submitButton?: React.ReactNode | ((props: ConfigFormSubmitButtonProps) => React.ReactNode);
+    submitRef?: React.Ref<ConfigFormHandle | null>;
+    formId?: string;
 }
