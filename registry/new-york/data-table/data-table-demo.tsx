@@ -30,6 +30,7 @@ export function DataTableDemo() {
     const [globalFilter, setGlobalFilter] = React.useState('');
     const [density, setDensity] = React.useState<'comfortable' | 'compact'>('compact');
     const [variant, setVariant] = React.useState<'default' | 'spaced' | 'normal' | 'bordered' | 'minimal' | 'glass'>('default');
+    const [columnBorders, setColumnBorders] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
     const [stickyHeader, setStickyHeader] = React.useState(true);
 
@@ -145,6 +146,17 @@ export function DataTableDemo() {
                     >
                         Sticky Header: {stickyHeader ? 'ON' : 'OFF'}
                     </button>
+
+                    {variant === 'bordered' && (
+                        <button
+                            onClick={() => setColumnBorders((b) => !b)}
+                            className={`px-3 py-1.5 border rounded-md font-medium hover:cursor-pointer transition-colors bg-background ${
+                                columnBorders ? 'border-primary text-primary' : 'hover:bg-muted'
+                            }`}
+                        >
+                            Column Borders: {columnBorders ? 'ON' : 'OFF'}
+                        </button>
+                    )}
                 </div>
             </div>
 
@@ -160,6 +172,7 @@ export function DataTableDemo() {
                 <Table
                     value={MOCK_DATA}
                     display={variant}
+                    columnBorders={columnBorders}
                     density={density}
                     loading={loading}
                     globalFilter={globalFilter}
@@ -252,6 +265,7 @@ export function DataTableDemo() {
                     <Table
                         value={MOCK_DATA}
                         display={variant}
+                        columnBorders={columnBorders}
                         density={density}
                         loading={loading}
                         globalFilter={globalFilter}

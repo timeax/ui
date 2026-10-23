@@ -84,6 +84,7 @@ export interface TableProps<T> {
     children: React.ReactNode;
     display?: DisplayVariant;
     variant?: DisplayVariant;
+    columnBorders?: boolean;
     rowGap?: RowGap;
     rowRadius?: RowRadius;
     density?: Density;

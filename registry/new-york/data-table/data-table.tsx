@@ -104,6 +104,7 @@ export const BodyRow = React.memo(
         rowCls,
         onGoto,
         display,
+        columnBorders,
         isExpanded,
         toggleRowExpanded,
         rowExpansionTemplate,
@@ -131,6 +132,7 @@ export const BodyRow = React.memo(
         densityCls: string;
         rowCls: string;
         display: DisplayVariant;
+        columnBorders: boolean;
         isExpanded: boolean;
         toggleRowExpanded: (row: any) => void;
         rowExpansionTemplate?: (row: any, index: number) => React.ReactNode;
@@ -241,7 +243,7 @@ export const BodyRow = React.memo(
 
             const cellBorderCls =
                 display === 'bordered'
-                    ? 'border-r border-b border-border/80 last:border-r-0 dark:border-border/40'
+                    ? cn('border-b border-border/80 dark:border-border/40', columnBorders && 'border-r last:border-r-0')
                     : '';
 
             const content = c.body
@@ -325,7 +327,7 @@ export const BodyRow = React.memo(
                             display === 'default'
                                 ? 'bg-transparent'
                                 : cn('sticky left-0', display === 'minimal' ? 'bg-background/95 backdrop-blur-xs' : 'bg-card/95'),
-                            display === 'bordered' && 'border-r border-b border-border/80 dark:border-border/40'
+                            display === 'bordered' && cn('border-b border-border/80 dark:border-border/40', columnBorders && 'border-r')
                         )}
                         onClick={(e) => e.stopPropagation()}
                     >
@@ -345,7 +347,7 @@ export const BodyRow = React.memo(
                             display === 'default'
                                 ? 'bg-transparent'
                                 : cn('sticky', display === 'minimal' ? 'bg-background/95 backdrop-blur-xs' : 'bg-card/95'),
-                            display === 'bordered' && 'border-r border-b border-border/80 dark:border-border/40'
+                            display === 'bordered' && cn('border-b border-border/80 dark:border-border/40', columnBorders && 'border-r')
                         )}
                         onClick={(e) => e.stopPropagation()}
                     >
@@ -363,7 +365,7 @@ export const BodyRow = React.memo(
                         colSpan={columns.length}
                         className={cn(
                             "p-6 bg-muted/10",
-                            display === 'bordered' && 'border-r border-b border-border/80 dark:border-border/40'
+                            display === 'bordered' && cn('border-b border-border/80 dark:border-border/40', columnBorders && 'border-r last:border-r-0')
                         )}
                     >
                         <div className="animate-in fade-in slide-in-from-top-1 duration-200">
@@ -378,6 +380,7 @@ export const BodyRow = React.memo(
     (prev, next) => {
         return (
             prev.display === next.display &&
+            prev.columnBorders === next.columnBorders &&
             prev.row === next.row &&
             prev.isSelected === next.isSelected &&
             prev.rowIndex === next.rowIndex &&
@@ -404,6 +407,7 @@ export function Table<T>(props: TableProps<T>) {
         children,
         display: displayProp,
         variant: variantProp,
+        columnBorders = false,
         rowGap,
         rowRadius,
         density = 'compact',
@@ -945,7 +949,7 @@ export function Table<T>(props: TableProps<T>) {
 
         const headerBorderCls =
             display === 'bordered'
-                ? 'border-r border-b border-border/80 last:border-r-0 dark:border-border/40'
+                ? cn('border-b border-border/80 dark:border-border/40', columnBorders && 'border-r last:border-r-0')
                 : '';
 
         const zClass = isHeaderSticky ? (stickySide ? 'z-[60]' : 'z-40') : (stickySide ? 'z-30' : 'z-10');
@@ -1025,7 +1029,7 @@ export function Table<T>(props: TableProps<T>) {
 
             <div className={cn(
                 "relative w-full overflow-hidden transition-all duration-300",
-                (display === 'normal' || display === 'bordered') && "border rounded-md bg-card",
+                (display === 'normal' || display === 'bordered') && "border bg-card",
                 display === 'glass' && "border rounded-md bg-card/30 backdrop-blur-md border-border/30 shadow-xs",
                 (display === 'minimal' || display === 'default' || display === 'spaced') && "border-none bg-transparent"
             )}>
@@ -1039,18 +1043,18 @@ export function Table<T>(props: TableProps<T>) {
                 )}
 
                 <ScrollArea
-                    className={cn('relative w-full', scrollX && 'overflow-x-auto')}
+                    className="relative w-full"
                     style={{ height: activeViewportHeight }}
-                    viewportClassName="w-full overflow-y-auto"
+                    viewportClassName={cn('w-full overflow-y-auto', scrollX && 'overflow-x-auto')}
                     viewportRef={viewportRef}
                     viewportProps={{
                         onScroll: handleScroll,
                     }}
                 >
-                    <UiTable className={tableCls}>
+                    <UiTable className={tableCls} containerClassName="overflow-visible">
                         <TableHeader
                             className={cn(
-                                display !== 'default' && stickyHeader && 'sticky top-0 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80 shadow-xs',
+                                display !== 'default' && stickyHeader && 'sticky top-0 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80',
                                 display === 'default' && 'bg-transparent'
                             )}
                             style={display !== 'default' && stickyHeader ? { top: stickyHeaderOffset } : undefined}
@@ -1058,7 +1062,6 @@ export function Table<T>(props: TableProps<T>) {
                             <TableRow
                                 className={cn(
                                     'border-b bg-transparent hover:bg-transparent',
-                                    display !== 'default' && 'shadow-sm',
                                     display === 'spaced' && [
                                         RADIUS_MAP[radiusToken].left,
                                         RADIUS_MAP[radiusToken].right,
@@ -1077,7 +1080,7 @@ export function Table<T>(props: TableProps<T>) {
                                             'text-center bg-transparent',
                                             display !== 'default' && 'sticky left-0 bg-background/95 backdrop-blur-xs',
                                             display !== 'default' && stickyHeader && 'top-0',
-                                            display === 'bordered' && 'border-r border-b border-border/80 dark:border-border/40',
+                                            display === 'bordered' && cn('border-b border-border/80 dark:border-border/40', columnBorders && 'border-r'),
                                             display !== 'default' && frozenShadow && 'shadow-[inset_-10px_0_10px_-10px_rgba(0,0,0,0.05)]'
                                         )}
                                     >
@@ -1096,7 +1099,7 @@ export function Table<T>(props: TableProps<T>) {
                                             'text-center bg-transparent',
                                             display !== 'default' && 'sticky bg-background/95 backdrop-blur-xs',
                                             display !== 'default' && stickyHeader && 'top-0',
-                                            display === 'bordered' && 'border-r border-b border-border/80 dark:border-border/40',
+                                            display === 'bordered' && cn('border-b border-border/80 dark:border-border/40', columnBorders && 'border-r'),
                                             display !== 'default' && frozenShadow && 'shadow-[inset_-10px_0_10px_-10px_rgba(0,0,0,0.05)]'
                                         )}
                                     >
@@ -1150,6 +1153,7 @@ export function Table<T>(props: TableProps<T>) {
                                             densityCls={densityCls}
                                             rowCls={cn(rowBase, hoverCls, striped && 'odd:bg-muted/30')}
                                             display={display}
+                                            columnBorders={columnBorders}
                                             isExpanded={isRowExpanded(row, ri + offsetIndex)}
                                             toggleRowExpanded={(r) => toggleRowExpanded(r, ri + offsetIndex)}
                                             rowExpansionTemplate={props.rowExpansionTemplate}
