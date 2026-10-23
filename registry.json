@@ -244,7 +244,7 @@
         "checkbox",
         "button",
         "scroll-area",
-        "table",
+        "timeax/ui/table",
         "timeax/ui/dropdown-menu",
         "timeax/ui/text",
         "timeax/ui/status-button",
